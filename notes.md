@@ -2,4 +2,5 @@
 
 ## TODO:
 
-- move 2.0 migration guide down
+[] Check broken links
+[] Update 'infinite scalability'

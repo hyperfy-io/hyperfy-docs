@@ -91,4 +91,4 @@ export function EthCubes() {
 }
 ```
 
-Learn more in the [useEth()](/sdk/ref/use-eth) API reference.
+Learn more in the [useEth()](/sdk/ref/hooks/use-eth) API reference.
