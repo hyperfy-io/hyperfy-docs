@@ -1,24 +1,20 @@
----
-sidebar_position: 30
----
-
 # `Avatar`
 
 A reference to an avatar in the world. This object is provided in events and returned from methods like `getAvatar(id)` etc.
 
 ```jsx
-import { useWorld } from 'hyperfy'
+import { useWorld } from "hyperfy";
 
 function Box() {
-  const world = useWorld()
+  const world = useWorld();
 
   useEffect(() => {
-    world.getAvatars().forEach(avatar => {
-      avatar.teleport([0, 100, 0])
-    })
-  }, [])
+    world.getAvatars().forEach((avatar) => {
+      avatar.teleport([0, 100, 0]);
+    });
+  }, []);
 
-  return <box />
+  return <box />;
 }
 ```
 
@@ -36,19 +32,19 @@ The wallet address of the avatar (if connected)
 
 ### .teleport(placeLabel)
 
-Teleports the avatar to a [Place](./place) with that label. If multiple places with the same label exist it will pick one at random.
+Teleports the avatar to a [Place](./components/place) with that label. If multiple places with the same label exist it will pick one at random.
 
 ### .getPosition(vec3)
 
-Gets the world position of the avatar and applies it to the provided [Vector3](./vector3)
+Gets the world position of the avatar and applies it to the provided [Vector3](./utils/vector3)
 
 ### .getBonePosition(boneName, vec3)
 
-Gets the world position of a specific bone and applies it to the provided [Vector3](./vector3)
+Gets the world position of a specific bone and applies it to the provided [Vector3](./utils/vector3)
 
 ### .getBoneRotation(boneName, eul)
 
-Gets the world rotation of a specific bone and applies it to the provided [Euler](./euler)
+Gets the world rotation of a specific bone and applies it to the provided [Euler](./utils/euler)
 
 ### .getRay(hand)
 

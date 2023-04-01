@@ -1,5 +1,4 @@
 ---
-sidebar_position: 34
 sidebar_label: 🎨 3D Models
 ---
 

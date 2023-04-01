@@ -1,5 +1,4 @@
 ---
-sidebar_position: 5
 sidebar_label: 2.0 Migration Guide
 ---
 
@@ -57,10 +56,10 @@ Every app should be wrapped in an `<app>` element. The `<environment>` element i
 This is a stylistic change and we thought now would be a good time to change it.
 
 ```jsx
-import { useWorld } from 'hyperfy'
+import { useWorld } from "hyperfy";
 
 function MyThing() {
-  const world = useWorld()
+  const world = useWorld();
 }
 ```
 

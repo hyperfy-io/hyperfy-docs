@@ -1,7 +1,3 @@
----
-sidebar_position: 25
----
-
 # Web3
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gzSIk9vKsPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -18,52 +14,54 @@ The following example demonstrates this functionality using simple cubes that yo
 - The `green` cube will request the user to make a payment.
 
 ```jsx
-import React, { useMemo, useState } from 'react'
-import { useEth } from 'hyperfy'
+import React, { useMemo, useState } from "react";
+import { useEth } from "hyperfy";
 
-const CONTRACT = '0x000...'
-const MINT_PRICE = '0.06'
-const PAYEE = '0x000...'
+const CONTRACT = "0x000...";
+const MINT_PRICE = "0.06";
+const PAYEE = "0x000...";
 
 export function EthCubes() {
-  const eth = useEth() // defaults to ethereum network
-  const contract = useMemo(() => eth.contract(CONTRACT), [])
-  const [status, setStatus] = useState(null)
+  const eth = useEth(); // defaults to ethereum network
+  const contract = useMemo(() => eth.contract(CONTRACT), []);
+  const [status, setStatus] = useState(null);
 
   async function getBalance(e) {
-    const { address } = e.avatar
-    if (!address) return setStatus('Not connected!')
-    setStatus('Checking...')
-    const balance = await contract.read('balanceOf', address)
-    setStatus(`Balance: ${balance}`)
+    const { address } = e.avatar;
+    if (!address) return setStatus("Not connected!");
+    setStatus("Checking...");
+    const balance = await contract.read("balanceOf", address);
+    setStatus(`Balance: ${balance}`);
   }
 
   async function mint(e) {
-    const { address } = e.avatar
-    if (!address) return setStatus('Not connected!')
-    setStatus('Please confirm transaction')
-    const tx = await contract.write('mint', 1, { value: eth.toWei(MINT_PRICE) })
-    setStatus('Verifying...')
-    await tx.wait()
-    setStatus('Minted!')
+    const { address } = e.avatar;
+    if (!address) return setStatus("Not connected!");
+    setStatus("Please confirm transaction");
+    const tx = await contract.write("mint", 1, {
+      value: eth.toWei(MINT_PRICE),
+    });
+    setStatus("Verifying...");
+    await tx.wait();
+    setStatus("Minted!");
   }
 
   async function sign(e) {
-    const { address } = e.avatar
-    if (!address) return setStatus('Not connected!')
-    setStatus('Please sign message')
-    const signature = await eth.sign('Howdy!')
-    setStatus('Signed!')
+    const { address } = e.avatar;
+    if (!address) return setStatus("Not connected!");
+    setStatus("Please sign message");
+    const signature = await eth.sign("Howdy!");
+    setStatus("Signed!");
   }
 
   async function pay(e) {
-    const { address } = e.avatar
-    if (!address) return setStatus('Not connected!')
-    setStatus('Please confirm payment')
-    const tx = await eth.pay(PAYEE, eth.toWei('0.01'))
-    setStatus('Verifying...')
-    await tx.wait()
-    setStatus('Paid!')
+    const { address } = e.avatar;
+    if (!address) return setStatus("Not connected!");
+    setStatus("Please confirm payment");
+    const tx = await eth.pay(PAYEE, eth.toWei("0.01"));
+    setStatus("Verifying...");
+    await tx.wait();
+    setStatus("Paid!");
   }
 
   return (
@@ -89,8 +87,8 @@ export function EthCubes() {
         onPointerDown={pay}
       />
     </>
-  )
+  );
 }
 ```
 
-Learn more in the [useEth()](/sdk/ref/use-eth) API reference.
+Learn more in the [useEth()](/sdk/ref/hooks/use-eth) API reference.

@@ -1,7 +1,3 @@
----
-sidebar_position: 30
----
-
 # Climbing
 
 In VR, users can climb objects by grabbing onto them and pulling themselves up. Users can also grab onto objects and fling themselves off in any direction. In the future we hope to also figure out a nice way to give mobile and desktop users the ability to climb as well.
@@ -9,12 +5,12 @@ In VR, users can climb objects by grabbing onto them and pulling themselves up. 
 By default climbing is disabled. It can be toggled on and off (globally or per user) using the `climbing` element:
 
 ```jsx
-export default function() {
+export default function () {
   return (
     <environment>
-      <climbing/>
+      <climbing />
     </environment>
-  )
+  );
 }
 ```
 
@@ -35,9 +31,9 @@ All shape elements such as `<box>` and `<boxes>` that are a child of a `<rigidbo
 function Box() {
   return (
     <rigidbody>
-      <box climbable={false}/>
+      <box climbable={false} />
     </rigidbody>
-  )
+  );
 }
 ```
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # React
 
 Apps in Hyperfy are built using the declarative power of React – But – instead of rendering to the DOM your app is being rendered into an automatic multiplayer virtual world. Instead of using DOM elements like `<div>` and `<p>` you have access to powerful new elements such as `<model>` and `<rigidbody>`.
@@ -13,7 +9,7 @@ Your apps `index.js` file should export a default React component that will be u
 The following is a simple app that displays a large field of grass:
 
 ```jsx
-import React from 'react'
+import React from "react";
 
 export default function Grass() {
   return (
@@ -22,7 +18,7 @@ export default function Grass() {
         <box size={[100, 0.1, 100]} color="green" />
       </rigidbody>
     </app>
-  )
+  );
 }
 ```
 

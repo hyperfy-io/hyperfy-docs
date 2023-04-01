@@ -1,7 +1,3 @@
----
-sidebar_position: 15
----
-
 # Structure
 
 Once you've created a new project it will look something like this:
