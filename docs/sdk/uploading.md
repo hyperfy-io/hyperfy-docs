@@ -5,8 +5,8 @@ Once you're happy with your app and want to use them in your actual world, you c
 ## Checklist
 
 1. Test your app to make sure it runs well on mobile, desktop and VR devices.
-1. Make sure your [app.json](/sdk/ref/app.json) file has the correct metadata that you want.
-1. Ensure any files you don't need uploaded are in your `src` folder, not your `assets` folder.
+2. Make sure your [app.json](/sdk/ref/app-config) file has the correct metadata that you want.
+3. Ensure any files you don't need uploaded are in your `src` folder, not your `assets` folder.
 
 ## Upload to Hyperfy
 
