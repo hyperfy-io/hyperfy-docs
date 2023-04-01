@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<billboard>`
 
 All rendered children of this element will face the camera.

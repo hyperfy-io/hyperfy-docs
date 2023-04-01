@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<trigger>`
 
 Adds a trigger area to the space that will trigger `onEnter` and `onLeave` callbacks when an avatar enters or leaves the area.

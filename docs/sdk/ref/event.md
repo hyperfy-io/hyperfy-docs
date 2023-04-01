@@ -1,7 +1,3 @@
----
-sidebar_position: 30
----
-
 # `Event`
 
 Provided to event callbacks such as `onHoverEnter`, `onHoverLeave`, `onPointerDown` and `onPointerUp` with information about the event.

@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<skysphere>`
 
 Surrounds the world with a large sphere that has an equirectangular/panoramic image texture.

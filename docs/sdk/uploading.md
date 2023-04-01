@@ -1,7 +1,3 @@
----
-sidebar_position: 40
----
-
 # Uploading
 
 Once you're happy with your app and want to use them in your actual world, you can upload them to Hyperfy with a single command.

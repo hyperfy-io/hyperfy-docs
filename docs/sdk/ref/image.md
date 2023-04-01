@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<image>`
 
 Renders an image asset into the world.

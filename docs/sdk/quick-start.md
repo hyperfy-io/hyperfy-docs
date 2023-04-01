@@ -1,7 +1,3 @@
----
-sidebar_position: 10
----
-
 # Quick Start
 
 To get started you'll need NodeJS + Npm/Yarn. We recommend using NodeJS `v16.14.2` as this is the version we build and test with. A utility like [nvm](https://github.com/nvm-sh/nvm) allows you to quickly switch between different versions of node.

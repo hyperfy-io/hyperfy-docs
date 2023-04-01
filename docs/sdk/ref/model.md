@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<model>`
 
 Renders a GLTF model into the world.

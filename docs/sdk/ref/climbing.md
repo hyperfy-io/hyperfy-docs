@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<climbing>`
 
 By default worlds have climbing disabled. Adding this element allows you to toggle climbing on or off dynamically.

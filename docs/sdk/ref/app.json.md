@@ -1,7 +1,3 @@
----
-sidebar_position: 40
----
-
 # `app.json`
 
 The `app.json` file describes the metadata of your app.

@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<audio>`
 
 Plays audio in the world, either spatial or ambient.

@@ -1,7 +1,3 @@
----
-sidebar_position: 30
----
-
 # `Euler`
 
 A utility identical to THREE.Euler so you don't have to BYO.
@@ -9,7 +5,7 @@ A utility identical to THREE.Euler so you don't have to BYO.
 See three.js docs for more info.
 
 ```jsx
-import { Euler, DEG2RAD } from 'hyperfy'
+import { Euler, DEG2RAD } from "hyperfy";
 
-const rotation = new Euler().fromArray([0, DEG2RAD * 90, 0])
+const rotation = new Euler().fromArray([0, DEG2RAD * 90, 0]);
 ```

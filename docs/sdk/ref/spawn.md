@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<spawn>`
 
 Defines a point at which avatars should join when they enter a world. If multiple spawn points exist one will be chosen randomly.

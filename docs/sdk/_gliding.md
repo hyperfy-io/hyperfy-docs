@@ -1,7 +1,3 @@
----
-sidebar_position: 30
----
-
 # Gliding
 
 In VR, users can spread their arms while falling to activate gliding. The user will glide and roll with the angle of their hands.
@@ -9,12 +5,12 @@ In VR, users can spread their arms while falling to activate gliding. The user w
 By default gliding is disabled. It can be toggled on and off (globally or per user) using the `gliding` element:
 
 ```jsx
-export default function() {
+export default function () {
   return (
     <environment>
-      <gliding/>
+      <gliding />
     </environment>
-  )
+  );
 }
 ```
 

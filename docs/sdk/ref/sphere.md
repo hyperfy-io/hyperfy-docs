@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<sphere>`
 
 Renders a sphere. When placed inside of a `<rigidbody>` it gains physical properties.

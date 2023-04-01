@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<spheres>`
 
 Renders a group of instanced spheres in a single draw call.

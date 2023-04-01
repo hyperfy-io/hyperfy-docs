@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<boxes>`
 
 Renders a group of instanced boxes in a single draw call.

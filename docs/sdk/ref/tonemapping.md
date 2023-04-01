@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<tonemapping>`
 
 Used to change the tone mapping value of the world.

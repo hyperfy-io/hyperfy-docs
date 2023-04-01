@@ -1,7 +1,3 @@
----
-sidebar_position: 30
----
-
 # Flying
 
 When users double jump they can activate flying mode if it's enabled. When flying, gravity has no effect and you can move around faster than on foot.
@@ -9,12 +5,12 @@ When users double jump they can activate flying mode if it's enabled. When flyin
 By default flying is disabled. It can be toggled on and off (globally or per user) using the `flying` element:
 
 ```jsx
-export default function() {
+export default function () {
   return (
     <environment>
-      <flying/>
+      <flying />
     </environment>
-  )
+  );
 }
 ```
 

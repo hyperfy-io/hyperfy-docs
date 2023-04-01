@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<place>`
 
 Marks a place that can then be teleported to, or used as a deeplink.

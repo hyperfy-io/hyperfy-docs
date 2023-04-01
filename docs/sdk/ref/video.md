@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<video>`
 
 Displays a video in the world.

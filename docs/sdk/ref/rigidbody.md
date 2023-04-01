@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<rigidbody>`
 
 Creates a physics rigid body. The rigid body has no shape but when `<box>` or `<model>` are added as children they will be attached as colliders.

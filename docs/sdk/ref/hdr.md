@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<hdr>`
 
 Sets the global HDRI for a world.

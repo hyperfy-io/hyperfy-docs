@@ -1,22 +1,18 @@
----
-sidebar_position: 40
----
-
 # `useWorld()`
 
 A React hook that provides access to the underlying engine.
 
 ```jsx
-import { useWorld } from 'hyperfy'
+import { useWorld } from "hyperfy";
 
 function Box() {
-  const world = useWorld()
+  const world = useWorld();
 
   if (world.isServer) {
-    console.log(`I'm running on the server!`)
+    console.log(`I'm running on the server!`);
   }
 
-  return <box />
+  return <box />;
 }
 ```
 
@@ -57,7 +53,7 @@ Returns an array of `Avatar` references
 Posts an event into the chat. If `localOnly` is `true` only the current client will see it. Has no effect on the server.
 
 ```jsx
-world.chat('You picked up a key.', true)
+world.chat("You picked up a key.", true);
 ```
 
 ### .open(url, newTab=false)
@@ -65,9 +61,9 @@ world.chat('You picked up a key.', true)
 Opens a URL. Examples:-
 
 ```jsx
-world.open('/my-other-world') // switch world
-world.open('/expanse', true) // open world in a new tab
-world.open('https://google.com', true) // open link in a new tab
+world.open("/my-other-world"); // switch world
+world.open("/expanse", true); // open world in a new tab
+world.open("https://google.com", true); // open link in a new tab
 ```
 
 ### .http(options)
@@ -76,10 +72,10 @@ Performs an HTTP request similar to fetch()
 
 ```jsx
 const response = await world.http({
-  method: 'POST',
-  url: 'https://foo.com',
-  data: { foo: 'bar' },
-})
+  method: "POST",
+  url: "https://foo.com",
+  data: { foo: "bar" },
+});
 ```
 
 ### .onUpdate(callback)
@@ -87,20 +83,20 @@ const response = await world.http({
 Subscribes to frame updates. Returns a function that unsubscribes.
 
 ```jsx
-import React, { useRef } from 'react'
-import { useWorld } from 'hyperfy'
+import React, { useRef } from "react";
+import { useWorld } from "hyperfy";
 
 function Box() {
-  const ref = useRef()
-  const world = useWorld()
+  const ref = useRef();
+  const world = useWorld();
 
   useEffect(() => {
-    return world.onUpdate(delta => {
-      ref.current.setPosition(/* ... */)
-    })
-  })
+    return world.onUpdate((delta) => {
+      ref.current.setPosition(/* ... */);
+    });
+  });
 
-  return <box ref={ref} />
+  return <box ref={ref} />;
 }
 ```
 
@@ -111,19 +107,19 @@ Subscribes to a world event. Events can be system based such as `join`, `leave` 
 Returns a function that unsubscribes from the event.
 
 ```jsx
-import React from 'react'
-import { useWorld } from 'hyperfy'
+import React from "react";
+import { useWorld } from "hyperfy";
 
 function Box() {
-  const world = useWorld()
+  const world = useWorld();
 
   useEffect(() => {
-    return world.on('join', avatar => {
-      console.log(`${avatar.name} joined.`)
-    })
-  }, [])
+    return world.on("join", (avatar) => {
+      console.log(`${avatar.name} joined.`);
+    });
+  }, []);
 
-  return <box />
+  return <box />;
 }
 ```
 

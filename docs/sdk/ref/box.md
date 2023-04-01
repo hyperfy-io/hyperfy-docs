@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<box>`
 
 Renders a box. When placed inside a `<rigidbody>` it gains physical properties.

@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<background>`
 
 Used to change the background color of a world.

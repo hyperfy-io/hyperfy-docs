@@ -1,7 +1,3 @@
----
-sidebar_position: 25
----
-
 # Sync State
 
 While you are free to use React's `useState` hooks in order to change things only for the current avatar, it's likely you'll want to have some or all of your state synchronized with all clients connected to the world so that everyone sees the same thing.
@@ -11,31 +7,31 @@ To do this, export a `getStore` function and then use the `useSyncState` hook to
 The following example shows a cube that changes color when anyone clicks on it. The color change is observed by **everyone** in the world:
 
 ```jsx
-import React from 'react'
-import { useSyncState } from 'hyperfy'
+import React from "react";
+import { useSyncState } from "hyperfy";
 
 export default function ColorCube() {
-  const [color, dispatch] = useSyncState(state => state.color)
+  const [color, dispatch] = useSyncState((state) => state.color);
   return (
     <app>
-      <box color={color} onPointerDown={() => dispatch('toggle')} />
+      <box color={color} onPointerDown={() => dispatch("toggle")} />
     </app>
-  )
+  );
 }
 
 const initialState = {
-  color: 'blue',
-}
+  color: "blue",
+};
 
 export function getStore(state = initialState) {
   return {
     state,
     actions: {
       toggle(state) {
-        state.color = state.color === 'blue' ? 'red' : 'blue'
+        state.color = state.color === "blue" ? "red" : "blue";
       },
     },
-  }
+  };
 }
 ```
 

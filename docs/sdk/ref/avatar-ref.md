@@ -1,24 +1,20 @@
----
-sidebar_position: 30
----
-
 # `Avatar`
 
 A reference to an avatar in the world. This object is provided in events and returned from methods like `getAvatar(id)` etc.
 
 ```jsx
-import { useWorld } from 'hyperfy'
+import { useWorld } from "hyperfy";
 
 function Box() {
-  const world = useWorld()
+  const world = useWorld();
 
   useEffect(() => {
-    world.getAvatars().forEach(avatar => {
-      avatar.teleport([0, 100, 0])
-    })
-  }, [])
+    world.getAvatars().forEach((avatar) => {
+      avatar.teleport([0, 100, 0]);
+    });
+  }, []);
 
-  return <box />
+  return <box />;
 }
 ```
 

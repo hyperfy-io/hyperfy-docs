@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<global>`
 
 Any objects placed in here are rendered in world-space coordinates instead of app-space corrdinates.
@@ -16,7 +12,7 @@ function App() {
         <box /> // this box is in world space
       </global>
     </app>
-  )
+  );
 }
 ```
 

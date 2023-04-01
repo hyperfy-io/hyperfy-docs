@@ -1,7 +1,3 @@
----
-sidebar_position: 20
----
-
 # `<text>`
 
 Displays text.
