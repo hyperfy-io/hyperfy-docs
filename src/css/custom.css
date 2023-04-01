@@ -1,14 +1,13 @@
 .aa-DetachedSearchButton {
-    background-color: #ffffff17 !important;
-    border: 1px solid #000000 !important;
-    color:grey !important;
-    width: 200px !important;
-    height: 28px !important;
-    box-sizing: border-box !important;
-    border-radius: 12px !important;
-    margin: 8px !important;
-  }
-  
-  .aa-SubmitIcon {
-    fill: grey !important;
-  }
+  background-color: #ffffff17 !important;
+  border: 1px solid #000000 !important;
+  color: grey !important;
+  height: 28px !important;
+  box-sizing: border-box !important;
+  border-radius: 12px !important;
+  margin: 8px !important;
+}
+
+.aa-SubmitIcon {
+  fill: grey !important;
+}
