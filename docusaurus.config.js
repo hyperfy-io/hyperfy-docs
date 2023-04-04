@@ -46,7 +46,7 @@ const config = {
         docs: {
           // Serve the docs at the site's root
           routeBasePath: "/",
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars/docs-sidebar.js"),
           editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
         },
         blog: false,
