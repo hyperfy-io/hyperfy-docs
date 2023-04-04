@@ -33,6 +33,7 @@ const config = {
         path: "sdk",
         routeBasePath: "sdk",
         sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),
+        editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
       },
     ],
   ],
