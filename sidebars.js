@@ -74,6 +74,8 @@ const sidebars = {
                 "sdk/ref/hooks/use-world",
                 "sdk/ref/hooks/use-eth",
                 "sdk/ref/hooks/use-editing",
+                "sdk/ref/hooks/use-fields",
+                "sdk/ref/hooks/use-file",
                 "sdk/ref/hooks/use-entity-uid",
                 "sdk/ref/hooks/use-sync-state",
               ],
