@@ -24,7 +24,18 @@ const config = {
     },
   ],
 
-  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }]],
+  plugins: [
+    ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "sdk",
+        path: "sdk",
+        routeBasePath: "sdk",
+        sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -59,7 +70,12 @@ const config = {
           src: "img/logo-light.svg",
           srcDark: "img/logo-dark.svg",
         },
-        items: [],
+        items: [
+          {
+            to: "sdk/overview",
+            label: "SDK",
+          },
+        ],
       },
       prism: {
         theme: lightCodeTheme,
