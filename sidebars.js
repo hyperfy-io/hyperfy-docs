@@ -27,8 +27,14 @@ const sidebars = {
       label: "SDK",
       items: [
         "sdk/overview",
+        "sdk/react",
         "sdk/quick-start",
         "sdk/structure",
+        {
+          type: "link",
+          label: "Examples",
+          href: "https://github.com/hyperfy-io/hyperfy-recipes",
+        },
         {
           type: "category",
           label: "API Reference",
@@ -101,7 +107,6 @@ const sidebars = {
         },
         // "sdk/app.json", <-- need to fix this
         "sdk/uploading",
-        "sdk/react",
         "sdk/sync-state",
         "sdk/web3",
         "sdk/migration-2.0",
