@@ -2,12 +2,6 @@
 
 Used to reference a set of components.
 
-:::tip
-
-Similar to a `<div>` but for 3D elements.
-
-:::
-
 ## Props
 
 | Prop              | Type     | Description                                                                                     | Default |
@@ -24,6 +18,12 @@ Similar to a `<div>` but for 3D elements.
 | onPointerUpHint   | function | Text displayed when hovering over this object with the pointer down and onPointerUp is defined. | null    |
 
 ## Example
+
+:::tip
+
+Similar to a `<div>` but for 3D elements.
+
+:::
 
 ```js
 const ShapeGroup = () => {
