@@ -29,6 +29,7 @@ module.exports = {
             "ref/components/flying",
             "ref/components/gliding",
             "ref/components/global",
+            "ref/components/group",
             "ref/components/hdr",
             "ref/components/input",
             "ref/components/image",
