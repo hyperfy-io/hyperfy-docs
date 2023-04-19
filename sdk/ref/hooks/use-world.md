@@ -36,6 +36,10 @@ Whether we are running on mobile / touch device
 
 Whether we are running on a VR device
 
+### .getShard()
+
+Returns the shard ID of the current server
+
 ### .getTime()
 
 Returns the current time of the server in milliseconds. This time is also synchronized across and available to all clients.
