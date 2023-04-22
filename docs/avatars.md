@@ -49,10 +49,10 @@ The rank of each avatar is chosen by the lowest rank given across the following 
 
 | Performance Rank | Heavy        | Good         | Great        | Perfect      |
 | ---------------- | ------------ | ------------ | ------------ | ------------ |
-| Triangles        | 64,000       | 32,000       | 16,000       | 4,000        |
-| Bounds           | 7m x 5m x 4m | 4m x 4m x 4m | 3m x 3m x 3m | 3m x 3m x 3m |
-| Meshes           | 32           | 4            | 2            | 1            |
 | File size        | 25 MB        | 15 MB        | 10 MB        | 5 MB         |
+| Triangles        | 64,000       | 32,000       | 16,000       | 4,000        |
+| Draw Calls       | 32           | 4            | 2            | 1            |
+| Bounds           | 7m x 5m x 4m | 4m x 4m x 4m | 3m x 3m x 3m | 3m x 3m x 3m |
 
 For most people we recommend trying to achieve a `Good` rank or better, as this provides the best experience for everyone on a wide variety of desktop/laptop devices. If you plan to spend time in large events or mobile/VR worlds it's recommended to achieve at least a `Great` rank.
 
