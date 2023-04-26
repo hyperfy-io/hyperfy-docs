@@ -139,4 +139,16 @@ Subscribes to a world event just once.
 
 Emits a world event that other apps might be listening for.
 
-Some event names are reserved for system events: `join`, `leave` and `chat`
+Some system event names are reserved: `join`, `leave` and `chat`
+
+### .notify(eventName, ...args)
+
+Sends an event directly to the server. If the caller is already on the server this acts the same as `.emit()`.
+
+Some system event names are reserved: `join`, `leave` and `chat`
+
+### .broadcast(eventName, ...args)
+
+Sends an event to the server and all other clients.
+
+Some system event names are reserved: `join`, `leave` and `chat`
