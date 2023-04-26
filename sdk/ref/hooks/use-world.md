@@ -52,6 +52,14 @@ Returns an `Avatar` reference. If no avatarUid is provided it returns the local 
 
 Returns an array of `Avatar` references
 
+### .getAudioAnalyser(sourceId)
+
+Returns an AudioAnalyser that targets a sourceId from `<video audioSourceId>` or `<audio sourceId>`.
+
+If the source doesn't exist, it will be connected when it becomes available.
+
+AudioAnalyser currently has a single method `.getByteFrequencyData()` which returns a `Uint8Array` of values sampled from the audio source.
+
 ### .chat(text, localOnly)
 
 Posts an event into the chat. If `localOnly` is `true` only the current client will see it. Has no effect on the server.
