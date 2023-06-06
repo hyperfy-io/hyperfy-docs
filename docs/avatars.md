@@ -6,7 +6,7 @@ sidebar_label: 👩‍🦳 Avatars
 
 Hyperfy gives you the ultimate freedom to be who you want to be in the metaverse. Gone are the days where platforms dictate what you look like with a limited set of 3D models and wearables that they provide.
 
-We do this by leaning on and pushing for open and interopable standards such VRM. As the first live metaverse platform on the web to support instant avatar switching in a multiplayer environment, we're super excited to see this standard become more widespread so that we can all make our avatars once, and then bring them with us wherever we go.
+We do this by leaning on and pushing for open and interoperable standards such as VRM. As the first live metaverse platform on the web to support instant avatar switching in a multiplayer environment, we're super excited to see this standard become more widespread so that we can all make our avatars once, and then bring them with us wherever we go.
 
 ## Getting An Avatar
 
