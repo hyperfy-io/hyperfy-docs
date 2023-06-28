@@ -36,9 +36,17 @@ Whether we are running on mobile / touch device
 
 Whether we are running on a VR device
 
+### .getSlug()
+
+Returns the slug of the current world.
+
+Example: when in https://hyperfy.io/meadow `world.getSlug()` will return `meadow`
+
 ### .getShard()
 
-Returns the shard ID of the current server
+Returns the shard (instance) ID of the current world server
+
+Example: when in https://hyperfy.io/meadow/~k0h1 `world.getShard()` will return `~k0h1`
 
 ### .getTime()
 
