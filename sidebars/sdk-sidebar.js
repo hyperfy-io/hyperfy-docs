@@ -5,11 +5,6 @@ module.exports = {
     "quick-start",
     "structure",
     {
-      type: "link",
-      label: "Examples",
-      href: "https://github.com/hyperfy-io/hyperfy-recipes",
-    },
-    {
       type: "category",
       label: "API Reference",
       items: [
@@ -81,9 +76,15 @@ module.exports = {
       ],
     },
     // "app.json", <-- need to fix this
+    "secrets",
     "uploading",
     "sync-state",
     "web3",
     "migration-2.0",
+    {
+      type: "link",
+      label: "Examples",
+      href: "https://github.com/hyperfy-io/hyperfy-recipes",
+    },
   ],
 };

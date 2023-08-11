@@ -9,6 +9,7 @@ my-project/
 │  │  ├─ assets/           models, images, audio, etc
 |  |  |- src/              raw assets eg .blend
 │  │  ├─ app.json          app metadata
+│  │  ├─ secrets.json      app server-side secrets
 │  │  ├─ index.js          script entrypoint
 ```
 
