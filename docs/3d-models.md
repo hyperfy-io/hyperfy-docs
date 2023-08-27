@@ -62,7 +62,7 @@ To add collision, simply add one of the following suffixes to your mesh:
 1. `_tcollider`: The mesh will have trimesh collision
 1. `_xtcollider`: The mesh will have trimesh collision and be invisible
 
-We highly recommend that you use convex colliders for performance and accurately solid objects, but we recongize trimesh collision as an alternative that is much simpler but has trade-offs.
+We highly recommend that you use convex colliders for performance and accurately solid objects, but we recognize trimesh collision as an alternative that is much simpler but has trade-offs.
 
 When using invisible colliders it's worth going to `Object Properties -> Viewport Display` and setting `Display As` to `Wire` so that they don't get in the way in blender. You could also add all your invisible colliders to a Collection to easily show/hide them all at once.
 

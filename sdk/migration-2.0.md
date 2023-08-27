@@ -79,9 +79,9 @@ Back in your package.json the `deploy` command has been replaced by `upload`. Si
 
 ### Other notable changes
 
-- All worlds now have a permanent invisible floor at zero. This means you can now delete the Grid your world has if you want, and you won't ended up falling forever.
+- All worlds now have a permanent invisible floor at zero. This means you can now delete the Grid your world has if you want, and you won't end up falling forever.
 - We have removed the ability to scale editor apps non-uniformly. Any apps that were previously scaled non-uniform have been locked to that scale internally.
-- The red collider object has been removed. These were useful when we didn't have full trimesh collision, but now that we have them its time to move on.
+- The red collider object has been removed. These were useful when we didn't have full trimesh collision, but now that we have them it's time to move on.
 
 ### Check everything works
 
