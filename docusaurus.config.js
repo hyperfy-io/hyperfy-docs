@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Hyperfy Docs",
+  title: "Hyperfy",
   tagline: "The web based metaverse available on every device",
   url: "https://hyperfy.io",
   baseUrl: "/",
@@ -24,19 +24,20 @@ const config = {
     },
   ],
 
-  plugins: [
-    ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "sdk",
-        path: "sdk",
-        routeBasePath: "sdk",
-        sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),
-        editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
-      },
-    ],
-  ],
+  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }]],
+  // plugins: [
+  //   ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
+  //   [
+  //     "@docusaurus/plugin-content-docs",
+  //     {
+  //       id: "sdk",
+  //       path: "sdk",
+  //       routeBasePath: "sdk",
+  //       sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),
+  //       editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
+  //     },
+  //   ],
+  // ],
 
   presets: [
     [
@@ -46,7 +47,7 @@ const config = {
         docs: {
           // Serve the docs at the site's root
           routeBasePath: "/",
-          sidebarPath: require.resolve("./sidebars/docs-sidebar.js"),
+          sidebarPath: require.resolve("./sidebars/sidebar.js"),
           editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
         },
         blog: false,
@@ -65,17 +66,17 @@ const config = {
         // disableSwitch: true,
       },
       navbar: {
-        title: "Hyperfy Docs",
+        title: "Hyperfy",
         logo: {
           alt: "Hyperfy Logo",
           src: "img/logo-light.svg",
           srcDark: "img/logo-dark.svg",
         },
         items: [
-          {
-            to: "sdk/overview",
-            label: "SDK",
-          },
+          // {
+          //   to: "sdk/overview",
+          //   label: "SDK",
+          // },
         ],
       },
       prism: {

@@ -1,40 +1,62 @@
 ---
-sidebar_label: 👩‍🦳 Avatars
+sidebar_position: 20
 ---
 
 # Avatars
 
-Hyperfy gives you the ultimate freedom to be who you want to be in the metaverse. Gone are the days where platforms dictate what you look like with a limited set of 3D models and wearables that they provide.
+Hyperfy gives you the power to be who you want to be, using the interoperable [VRM](https://vrm.dev/en/) avatar format. Gone are the days where platforms restrict what you look like!
 
-We do this by leaning on and pushing for open and interopable standards such VRM. As the first live metaverse platform on the web to support instant avatar switching in a multiplayer environment, we're super excited to see this standard become more widespread so that we can all make our avatars once, and then bring them with us wherever we go.
+As the first live metaverse platform on the web to support fully immersive multiplayer VRM avatars, we're super excited to see this standard become more widespread so that we can bring our avatars everywhere we go.
 
-## Getting An Avatar
+## Getting Started
 
-There are many ways to find an avatar that's perfect for you:
+To get you started quickly, we offer a library of open source avatars for you to choose from.
 
-- Browse premade avatars on [VRoid Hub](https://hub.vroid.com/en).
-- Create one easily with [VRoid Studio](https://vroid.com/en/studio).
-- Own an Avatar NFT from projects such as [Crypto Avatars](https://opensea.io/collection/cryptoavatars), [VOLTZ](https://opensea.io/collection/voltz-avatars), [VOID](https://opensea.io/collection/visitors-of-imma-degen), [Chain Runners](https://opensea.io/collection/chain-runners-xr) and more.
-- Design your own using [Blender](https://www.blender.org/) and the [VRM Addon](https://vrm-addon-for-blender.info/en/).
-- Find a community designer to create one for you.
+For now this includes 200+ Crypto Avatars from [Vipe](https://vipe.io) that you can equip right from the account menu:
 
-Many avatar projects are now announcing future support for VRM, it's an exciting time to be alive!
+<img src="/img/cryptoavatars.png" alt="Crypto Avatars in Hyperfy" style={{ maxWidth: '400px' }} />
 
-## Rank System
+## Avatar NFT's
 
-People are able to join the metaverse from a variety of devices including mobile phones and standalone VR headsets like the Oculus Quest 2. To keep everything accessible and to make sure people have the best experience possible, we use a ranking and avatar visibility system.
+All NFT's that you own that have a VRM avatar embedded will be displayed in the account menu for quick access:
 
-| Rank        | Works well on...                    |
+<img src="/img/nft-avatars.png" alt="NFT Avatars in Hyperfy" style={{ maxWidth: '400px' }} />
+
+## Uploading An Avatar
+
+If you found a VRM avatar online and want to use it in Hyperfy, you can either drag and drop it directly onto the window or click the upload button in the account menu
+
+## Finding An Avatar
+
+You can find avatars online in many places, with more being added daily:
+
+- NFT marketplaces such as [Vipe](https://vipe.io), [Mona](https://monaverse.com/marketplace?type=Avatar)
+- NFT collections suchs as [Crypto Avatars](https://opensea.io/collection/cryptoavatars), [VOLTZ](https://opensea.io/collection/voltz-avatars), [VOID](https://opensea.io/collection/visitors-of-imma-degen), [Chain Runners](https://opensea.io/collection/chain-runners-xr) and more.
+- Web2 marketplaces such as [VRoid Hub](https://hub.vroid.com/en)
+
+## Creating an Avatar
+
+You can also create your own avatar:
+
+- Using tools such as [VRoid Studio](https://vroid.com/en/studio)
+- With [Blender](https://www.blender.org/) and the [VRM Addon](https://vrm-addon-for-blender.info/en/).
+- Hiring a 3D artist (ask in our discord!)
+
+## Ranking System
+
+Hyperfy uses a ranking and visibility system to give people the best experience across any kind of device.
+
+| Rank        | Best for...                         |
 | ----------- | ----------------------------------- |
-| Perfect     | All devices                         |
-| Great       | Recent phones and standalone VR     |
+| Perfect     | Any device                          |
+| Great       | Modern phones and standalone VR     |
 | Good        | Medium performance desktops/laptops |
 | Heavy       | High performance desktops/laptops   |
 | Unoptimized | Opt-in only                         |
 
-We automatically choose a visibility option based on your device, but if you want more performance or to see more avatars you can change this in the display settings menu.
+We automatically choose a visibility setting based on your device but you can change this at any time in the settings menu to improve performance or view heavier avatars.
 
-If someone in a world you are in does not meet your visibility setting they will be shown as a fallback avatar.
+If an avatar doesn't meet your visibility setting they will be shown as a fallback avatar.
 
 The rank of each avatar is chosen by the lowest rank given across the following attributes:
 
@@ -56,18 +78,7 @@ The rank of each avatar is chosen by the lowest rank given across the following 
 
 For most people we recommend trying to achieve a `Good` rank or better, as this provides the best experience for everyone on a wide variety of desktop/laptop devices. If you plan to spend time in large events or mobile/VR worlds it's recommended to achieve at least a `Great` rank.
 
-## Large Events
-
-For a party or meetup where lots of people are in a world together at the same time, it's important that everyone sets their avatar visibility to something appropriate for the occasion and wears a well optimized avatar.
-
-- Lowering your avatar visibility setting before joining a world will load you into the world faster and prevent lag during the event.
-- Wearing a well optimized avatar will mean everyone sees you as you intended.
-
-> "Party at my house! Set your avatar visibility to Great+ and bring your best avatar!"
-
-By setting the tone for your event, people that follow your recommendation will have a great experience, and those who ignore it and bring heavy avatars along can't ruin the experience for others.
-
-## Creator Features
+## Creator Notes
 
 We support VRM 0.1 and 1.0 which includes MToon, UV Scrolling and Neon Glow for PBR materials.
 
