@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 const config = {
   title: "Hyperfy Docs",
   tagline: "The web based metaverse available on every device",
-  url: "https://hyperfy.io",
+  url: "https://docs.hyperfy.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
