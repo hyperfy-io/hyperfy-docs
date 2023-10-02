@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Hyperfy",
+  title: "Hyperfy Docs",
   tagline: "The web based metaverse available on every device",
   url: "https://hyperfy.io",
   baseUrl: "/",
