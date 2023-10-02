@@ -2,7 +2,7 @@
 
 Used to change the background color of a world.
 
-This has no effect if you are using a [<skysphere\>](/sdk/ref/components/skysphere) as it cannot be seen.
+This has no effect if you are using a [<skysphere\>](./skysphere) as it cannot be seen.
 
 ## Props
 
