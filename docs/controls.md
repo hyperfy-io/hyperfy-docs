@@ -29,7 +29,7 @@ You can explore in either portrait or landscape mode by rotating your device.
 | Fullscreen    | `F`                                                                 |
 | Hide UI       | `Z`                                                                 |
 | Hide Nametags | `N`                                                                 |
-| Free-cam      | `P` (if allowed)                                                    |
+| Free-cam      | `P` to toggle and `[` `]` to decrease and increase speed            |
 
 ## VR
 
