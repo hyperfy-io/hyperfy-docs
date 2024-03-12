@@ -9,7 +9,7 @@ To get started you'll need NodeJS + Npm/Yarn. We recommend using NodeJS `v16.14.
 The easiest way to get started with the SDK is by initializing a new project using `npx`:
 
 ```bash
-npx hyperfy create <project>
+npx hyperfy create quickstart
 ```
 
 This will create a project with a demo app to get you started.
@@ -17,7 +17,7 @@ This will create a project with a demo app to get you started.
 Launch the world:
 
 ```bash
-cd <project>
+cd quickstart
 npm install
 npm run dev
 ```
@@ -33,7 +33,7 @@ Open `apps/treasure-chest/index.js` and change the `OPEN_CLOSE_SPEED` value from
 To test multiplayer, just open multiple browser tabs. Each tab will automatially be assigned its own guest account.
 
 
-# Structure
+## Structure
 
 Once you've created a new project it will look something like this:
 
@@ -88,7 +88,7 @@ It's important to choose a unique ID for your project, eg by prefixing it with y
 :::
 
 
-# React
+## React
 
 Apps in Hyperfy are built using the declarative power of React – But – instead of rendering to the DOM your app is being rendered into an automatic multiplayer virtual world. Instead of using DOM elements like `<div>` and `<p>` you have access to powerful new elements such as `<model>` and `<rigidbody>`.
 
@@ -147,7 +147,7 @@ function MovingBox() {
 ```
 </details>
 
-# Sync State
+## Sync State
 
 While you are free to use React's `useState` hooks in order to change things only for the current avatar, it's likely you'll want to have some or all of your state synchronized with all clients connected to the world so that everyone sees the same thing.
 
@@ -192,7 +192,7 @@ Synchronized state is inspired by the flux/redux pattern popular on the web, but
 
 While it may take a second to get used to we've found that this flow is far more efficient and superior to what most platforms do by syncing the component changes of every entity in the space each time they change. This is the ultimate flex for declarative programming that other 3D engines don't have access to.
 
-# Secrets
+## Secrets
 
 Apps run on both the server and client which can be an issue if you want to do something securely like submit high scores or reward players.
 
@@ -224,7 +224,7 @@ export default function App() {
 ```
 
 
-# Web3
+## Web3
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gzSIk9vKsPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -323,7 +323,7 @@ export function EthCubes() {
 
 Learn more in the [useEth()](/developers/hooks/use-eth) API reference.
 
-# Uploading
+## Uploading
 
 Once you're happy with your app and want to use them in your actual world, you can upload them to Hyperfy with a single command.
 
