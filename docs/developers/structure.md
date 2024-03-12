@@ -39,7 +39,7 @@ Each app requires a single `index.js` entrypoint. From there you can import any 
 
 ## Metadata
 
-The `app.json` file describes the app and it's metadata.
+The `app.json` file describes the app and its metadata.
 
 ```json title='app.json'
 {
