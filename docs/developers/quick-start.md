@@ -56,6 +56,8 @@ To create another app it's easiest to just duplicate an existing one and edit th
 
 Everything added to a world in Hyperfy is an App. It is up to you if you want to create one giant app that holds your entire space or create many little apps that you can compose together and easily make changes in your live world using the editor.
 
+We have created a Github repository containing a collection of [Hyperfy Recipes](https://github.com/hyperfy-io/hyperfy-recipes) demonstrating how to build different apps using the Hyperfy SDK
+
 ## Assets
 
 All finalized models, sounds, videos or images you reference in your app should be placed in the `assets` folder. These files will be uploaded along with your code.
@@ -83,7 +85,7 @@ The `app.json` file describes the app and its metadata.
 
 :::caution
 
-It's important to choose a unique ID for your project, eg by prefixing it with your name or company.
+It's important to choose a unique ID for your project, eg by prefixing it with your name or company. 
 
 :::
 
@@ -98,6 +100,9 @@ Your apps `index.js` file should export a default React component that will be u
 
 The following is a simple app that displays a large field of grass:
 
+<details>
+<summary>Click to show code</summary>
+
 ```jsx
 import React from "react";
 
@@ -111,6 +116,7 @@ export default function Grass() {
   );
 }
 ```
+</details>
 
 ## Performance
 
@@ -134,10 +140,12 @@ function MovingBox() {
   useEffect(() => {
     const box = ref.current
     const position = new Vector3()
+// highlight-start
     return world.onUpdate(delta => {
       position.y += delta
       box.setPosition(position)
     })
+// highlight-end
   }, [])
 
   return (
@@ -160,12 +168,15 @@ The following example shows a cube that changes color when anyone clicks on it. 
 
 ```jsx
 import React from "react";
+// highlight-next-line
 import { useSyncState } from "hyperfy";
 
 export default function ColorCube() {
+// highlight-next-line
   const [color, dispatch] = useSyncState((state) => state.color);
   return (
     <app>
+// highlight-next-line
       <box color={color} onPointerDown={() => dispatch("toggle")} />
     </app>
   );
@@ -175,6 +186,7 @@ const initialState = {
   color: "blue",
 };
 
+// highlight-start
 export function getStore(state = initialState) {
   return {
     state,
@@ -185,6 +197,7 @@ export function getStore(state = initialState) {
     },
   };
 }
+// highlight-end
 ```
 </details>
 
