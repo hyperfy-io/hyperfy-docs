@@ -54,7 +54,7 @@ Each app lives inside its own folder inside the `/apps` directory. They will be 
 
 Everything added to a world in Hyperfy is an App. It is up to you if you want to create one giant app that holds your entire space or create many little apps that you can compose together and easily make changes in your live world using the editor.
 
-To create another app it's easiest to just duplicate an existing one and edit the `app.json` to give it a new id and title etc. We have created a Github repository containing a collection of [Hyperfy Recipes](https://github.com/hyperfy-io/hyperfy-recipes) demonstrating how to build different apps using the Hyperfy SDK
+To create another app it's easiest to just duplicate an existing one and edit the `app.json` to give it a new id and title etc. We have created a Github repository containing a collection of [Hyperfy Recipes](https://github.com/hyperfy-io/hyperfy-recipes) demonstrating how to build different apps using the Hyperfy SDK to get you started.
 
 ## Assets
 
@@ -66,7 +66,9 @@ You should store any raw source files like `.blend` and `.psd` in the `src` fold
 
 ## Scripts
 
-Each app requires a single `index.js` entrypoint. From there you can import any other js files in the app folder including other npm packages you have installed. Keep in mind that the `hyperfy` package already provides a bunch of useful utilities out of the box including `Vector3`, `DEG2RAD`, `tween`, etc. See the API Reference for more info.
+Each app requires a single `index.js` entrypoint. From there you can import any other js files in the app folder including other npm packages you have installed. 
+
+Your scripts run on both the server and on each client's browser independently. The server is not a central authority and doesn't automatically synchronize script data between clients. The `hyperfy` package provides utilities for synchronizing data, accessing secrets on the server, and running server-only or client-only code. It also provides a bunch of useful utilities out of the box including `Vector3`, `DEG2RAD`, `tween`, etc. See the API Reference for more info.
 
 ## Metadata
 
@@ -221,7 +223,7 @@ Ensure you are connected to Hyperfy:
 npm run connect
 ```
 
-Now build and upload your app, replacing <id> with the ID you specified in your `app.json` file:
+Now build and upload your app, replacing `<id>` with the ID you specified in your `app.json` file:
 
 ```bash
 npm run upload <id>
