@@ -52,11 +52,9 @@ my-project/
 
 Each app lives inside its own folder inside the `/apps` directory. They will be built when code is changed and in the browser you can bring them into the world to test from the editor, opened with the `Tab` key.
 
-To create another app it's easiest to just duplicate an existing one and edit the `app.json` to give it a new id and title etc.
-
 Everything added to a world in Hyperfy is an App. It is up to you if you want to create one giant app that holds your entire space or create many little apps that you can compose together and easily make changes in your live world using the editor.
 
-We have created a Github repository containing a collection of [Hyperfy Recipes](https://github.com/hyperfy-io/hyperfy-recipes) demonstrating how to build different apps using the Hyperfy SDK
+To create another app it's easiest to just duplicate an existing one and edit the `app.json` to give it a new id and title etc. We have created a Github repository containing a collection of [Hyperfy Recipes](https://github.com/hyperfy-io/hyperfy-recipes) demonstrating how to build different apps using the Hyperfy SDK
 
 ## Assets
 
