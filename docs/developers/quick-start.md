@@ -12,9 +12,9 @@ The easiest way to get started with the SDK is by initializing a new project usi
 npx hyperfy create quickstart
 ```
 
-This will create a project with a demo app to get you started.
+This will create a directory containing the project with a demo app to get you started.
 
-Launch the world:
+Navigate into the directory and launch the world:
 
 ```bash
 cd quickstart
