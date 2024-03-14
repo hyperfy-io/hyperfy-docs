@@ -217,7 +217,7 @@ Once you're happy with your app and want to use them in your actual world, you c
 
 ## Upload to Hyperfy
 
-Ensure you are connected to Hyperfy:
+Ensure you are connected to Hyperfy. This will open a hyperfy web page, if you are already connected it will tell you to close your browser window, otherwise it will ask you to connect with WalletConnect or MetaMask:
 
 ```bash
 npm run connect
