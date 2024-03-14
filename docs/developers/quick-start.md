@@ -85,7 +85,7 @@ The `app.json` file describes the app and its metadata.
 
 :::caution
 
-It's important to choose a unique ID for your project, eg by prefixing it with your name or company. 
+It's important to choose a unique ID for your project, eg by prefixing it with your name or company. It may only contain lowercase alphanumeric characters and hyphens.
 
 :::
 
