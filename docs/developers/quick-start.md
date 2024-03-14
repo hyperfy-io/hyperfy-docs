@@ -223,7 +223,7 @@ Ensure you are connected to Hyperfy:
 npm run connect
 ```
 
-Now build and upload each app using the ID you specified in each `app.json` file:
+Now build and upload your app, replacing <id> with the ID you specified in your `app.json` file:
 
 ```bash
 npm run upload <id>
