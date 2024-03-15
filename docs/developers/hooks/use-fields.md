@@ -128,3 +128,7 @@ export const getStore = (state = initialState) => {
   };
 };
 ```
+
+What this app looks like in the Hyperfy editor UI:
+
+![Editor Fields](image-1.png)
