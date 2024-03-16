@@ -2,6 +2,21 @@
 
 A React hook that provides access to the underlying engine.
 
+```jsx
+import React from 'react'
+//highlight-next-line
+import { useWorld } from "hyperfy";
+
+export default function Box() {
+//highlight-start
+  const world = useWorld();
+  world.chat("Hello world!");
+//highlight-end
+
+  return  <app></app>;
+}
+```
+
 ### .isServer
 
 Whether the app is currently running on the server
