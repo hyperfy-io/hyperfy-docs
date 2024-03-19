@@ -23,11 +23,11 @@ export default function App() {
 
 ## Props
 
-| Prop    | Type    | Description                                     |
-| --------| ------- | ----------------------------------------------- |
-| uid     |         | The UID of the avatar                           |
-| name    |         | The name of the avatar                          |
-| address |         | The wallet address of the avatar (if connected) |
+| Prop    | Type   | Description                                     |
+| --------| ------ | ----------------------------------------------- |
+| uid     | String | The UID of the avatar                           |
+| name    | String | The name of the avatar                          |
+| address | String | The wallet address of the avatar (if connected) |
 
 ## Ref
 
