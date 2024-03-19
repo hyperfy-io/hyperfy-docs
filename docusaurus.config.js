@@ -24,7 +24,28 @@ const config = {
     },
   ],
 
-  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }]],
+  plugins: [
+    ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-2',
+        async sidebarItemsGenerator({
+          isCategoryIndex: defaultCategoryIndexMatcher, // The default matcher implementation, given below
+          defaultSidebarItemsGenerator,
+          ...args
+        }) {
+          return defaultSidebarItemsGenerator({
+            isCategoryIndex() {
+              // No doc will be automatically picked as category index
+              return false;
+            },
+            ...args
+          });
+        },
+      },
+    ],
+  ],
   // plugins: [
   //   ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
   //   [
