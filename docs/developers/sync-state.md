@@ -10,9 +10,6 @@ To do this, export a `getStore` function and then use the `useSyncState` hook to
 
 The following example shows a cube that changes color when anyone clicks on it. The color change is observed by **everyone** in the world:
 
-<details>
-<summary>Click to show code</summary>
-
 ```jsx
 import React from "react";
 // highlight-next-line
@@ -46,7 +43,6 @@ export function getStore(state = initialState) {
 }
 // highlight-end
 ```
-</details>
 
 Synchronized state is inspired by the flux/redux pattern popular on the web, but instead of dispatching events locally they are distributed across all clients and the server.
 

@@ -12,9 +12,6 @@ Your apps `index.js` file should export a default React component that will be u
 
 The following is a simple app that displays a large field of grass:
 
-<details>
-<summary>Click to show code</summary>
-
 ```jsx
 import React from "react";
 
@@ -28,7 +25,6 @@ export default function Grass() {
   );
 }
 ```
-</details>
 
 ## Performance
 
