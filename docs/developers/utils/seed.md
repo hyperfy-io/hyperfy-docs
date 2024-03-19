@@ -12,17 +12,17 @@ import { seed } from "hyperfy";
 //highlight-next-line
 const rand = seed(1337);
 
-const trees = [];
+const boxes = [];
 for (let i = 0; i < 20; i++) {
 //highlight-next-line
-  trees.push([rand(-30, 30), rand(-200, 0) / 200, rand(-30, 30)]);
+  boxes.push([rand(-30, 30), rand(-200, 0) / 200, rand(-30, 30)]);
 }
 
 export default function App() {
   return (
     <app>
       {
-        trees.map((position, idx) => (
+        boxes.map((position, idx) => (
           <box key={idx} position={position} />
         ))
       }

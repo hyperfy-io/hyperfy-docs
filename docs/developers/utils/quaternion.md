@@ -12,6 +12,7 @@ import { Quaternion } from "hyperfy";
 export default function App() {
 //highlight-next-line
   const quaternion = new Quaternion().fromArray([0, 0, 0, 1]);
+  console.log(quaternion);
 
   return <app />;
 }

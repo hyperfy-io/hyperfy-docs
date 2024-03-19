@@ -16,6 +16,7 @@ export default function App() {
 	   21, 22, 23, 24,
 	   31, 32, 33, 34, 
 	   41, 42, 43, 44 );
+  console.log(matrix);
 
   return <app />;
 }
