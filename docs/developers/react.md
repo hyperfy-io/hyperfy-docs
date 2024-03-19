@@ -1,5 +1,8 @@
+---
+sidebar_position: 40
+---
 
-## React
+# React
 
 Apps in Hyperfy are built using the declarative power of React – But – instead of rendering to the DOM your app is being rendered into an automatic multiplayer virtual world. Instead of using DOM elements like `<div>` and `<p>` you have access to powerful new elements such as `<model>` and `<rigidbody>`.
 

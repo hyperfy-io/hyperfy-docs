@@ -31,5 +31,3 @@ Your project comes with a demo app called `Treasure Chest` that you can add to t
 Open `apps/treasure-chest/index.js` and change the `OPEN_CLOSE_SPEED` value from `0.5` to `2` and hit save. Your app will be updated and you'll see that the treasure chest now animates slower when opening/closing.
 
 To test multiplayer, just open multiple browser tabs. Each tab will automatially be assigned its own guest account.
-
-

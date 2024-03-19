@@ -1,5 +1,8 @@
+---
+sidebar_position: 50
+---
 
-## Sync State
+# Sync State
 
 While you are free to use React's `useState` hooks in order to change things only for the current avatar, it's likely you'll want to have some or all of your state synchronized with all clients connected to the world so that everyone sees the same thing.
 
