@@ -1,3 +1,7 @@
+---
+sidebar_position: 70
+---
+
 # `randomInt()`
 
 Apps all run in a secure environment so don't have access to `Math.random()`.

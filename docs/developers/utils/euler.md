@@ -1,3 +1,7 @@
+---
+sidebar_position: 30
+---
+
 # `Euler`
 
 A utility identical to THREE.Euler so you don't have to BYO.

@@ -1,3 +1,7 @@
+---
+sidebar_position: 40
+---
+
 # `Vector3`
 
 A utility identical to THREE.Vector3 so you don't have to BYO.

@@ -1,3 +1,7 @@
+---
+sidebar_position: 60
+---
+
 # `Quaternion`
 
 A utility identical to THREE.Quaternion so you don't have to BYO.

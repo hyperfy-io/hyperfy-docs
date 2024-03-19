@@ -1,3 +1,7 @@
+---
+sidebar_position: 80
+---
+
 # seed()
 
 Hyperfy provides a [Pseudorandom Number Generator](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) that can be used to generate distributed, deterministic, "random" values at runtime based on a seed.

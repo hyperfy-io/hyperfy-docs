@@ -1,3 +1,7 @@
+---
+sidebar_position: 50 
+---
+
 # `Matrix4`
 
 A utility identical to THREE.Matrix4 so you don't have to BYO.

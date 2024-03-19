@@ -1,3 +1,7 @@
+---
+sidebar_position: 20
+---
+
 # `RAD2DEG`
 
 A utility for converting radians to degrees.

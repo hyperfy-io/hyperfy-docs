@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # `DEG2RAD`
 
 A utility for converting degrees to radians.
