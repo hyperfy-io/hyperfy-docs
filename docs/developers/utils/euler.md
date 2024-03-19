@@ -2,7 +2,7 @@
 
 A utility identical to THREE.Euler so you don't have to BYO.
 
-See three.js docs for more info.
+See [three.js docs](https://threejs.org/docs/#api/en/math/Euler) for more info.
 
 ```jsx
 import React from "react";
