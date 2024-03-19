@@ -16,7 +16,7 @@ To use secrets in your app, simply add a `secrets.json` file to your app folder,
 You can then access them directly in your app code using the globally available `SECRETS` utility, and they will only be available on the server side:
 
 ```jsx
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function App() {
   useEffect(() => {
