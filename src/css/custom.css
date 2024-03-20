@@ -16,3 +16,7 @@
   /* Color which works with dark mode syntax highlighting theme */
   --docusaurus-highlighted-code-line-bg: rgb(52, 57, 79);
 }
+
+.hidden {
+  display: none !important;
+}
