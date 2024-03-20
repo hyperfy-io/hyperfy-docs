@@ -150,7 +150,7 @@ export default function App() {
   async function getBalance() {
     if (await eth.getChain()) {
       //highlight-next-line
-      const balance = await contract.read("totalSupply");
+      const balance = await contract.read("balanceOf");
       console(`Balance: ${balance}`);
     }
   }
