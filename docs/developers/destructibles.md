@@ -3,112 +3,247 @@ sidebar_label: "Guide: Destructibles"
 sidebar_position: 85
 ---
 
+## Final code
+
 ```jsx
-import React, { useState, useEffect, useRef } from "react";
-import { useSyncState, useWorld, useFields, useFile, useEditing } from "hyperfy";
+import React, { useState, useEffect, useRef } from 'react'
+import {
+  useSyncState,
+  useWorld,
+  useFields,
+  useFile,
+  useEditing,
+  DEG2RAD,
+  useSignal,
+  useEth,
+} from 'hyperfy'
+
+// const WALLET = "0xf53b18570db14c1e7dbc7dc74538c48d042f1332";
 
 export default function Destructible() {
-  const [opacity, setOpacity] = useState(0);  
-  const [inRange, setInRange] = useState(false);  
-  const [active, dispatch] = useSyncState((state) => state.active);
-  const { blastradius, upwardforce, giflifetime, gifscale, model, sound, gif, gifposition } = useFields();
-  const modelUrl = useFile(model);
-  const soundUrl = useFile(sound);
-  const gifUrl = useFile(gif);
-  const audioRef = useRef();
-  const world = useWorld();
-  const editing = useEditing();
+  const [opacity, setOpacity] = useState(0)
+  const [inRange, setInRange] = useState(false)
+  const [balance, setBalance] = useState(0)
+  const [intensity, setIntensity] = useState(0)
+  const [active, dispatch] = useSyncState(state => state.active)
+  const {
+    label,
+    lightcolor,
+    lightintensity,
+    lightscale,
+    lightposition,
+    lightlifetime,
+    blastradius,
+    upwardforce,
+    giflifetime,
+    gifscale,
+    model,
+    sound,
+    gif,
+    floorgif,
+    gifposition,
+  } = useFields()
+  const modelUrl = useFile(model)
+  const soundUrl = useFile(sound)
+  const gifUrl = useFile(gif)
+  const floorgifUrl = useFile(floorgif)
+  const audioRef = useRef()
+  const lightRef = useRef()
+  const world = useWorld()
+  const editing = useEditing()
+  const eth = useEth()
 
-  useEffect(() => {
-    if (!active) {
-      audioRef.current.play();
-      setOpacity(1);
-
-      if (inRange) {
-        world.applyUpwardForce(upwardforce);
-      }
-
-      setTimeout(() => {
-        setOpacity(0);
-      }, giflifetime);
-    }
-  }, [active]);
+  useSignal('Reset', () => {
+    dispatch('reset')
+  })
 
   function destroy() {
-    dispatch("destroy");
+    dispatch('destroy')
   }
 
   function enterRange(e) {
-    const localUid = world.getAvatar();
+    const localUid = world.getAvatar()
     if (localUid.uid == e) {
-      setInRange(true);
+      setInRange(true)
     }
   }
 
   function leaveRange(e) {
-    const localUid = world.getAvatar();
+    const localUid = world.getAvatar()
     if (localUid.uid == e) {
-      setInRange(false);
+      setInRange(false)
     }
   }
 
-  return (  
+  useEffect(() => {
+    const getBalance = async () => {
+      const chain = await eth.getChain()
+      console.log(chain)
+      if (chain) {
+        const address = world.getAvatar().address
+        console.log(address)
+        const contract = eth.contract(SECRETS.contract)
+        console.log(contract)
+        const worlds = await contract.read('balanceOf', address)
+        console.log(worlds)
+        setBalance(worlds)
+      } else {
+        setBalance(0)
+      }
+    }
+    console.log(active);
+
+    if (!active && !world.isServer) {
+      audioRef.current.play()
+      setOpacity(1)
+      setIntensity(lightintensity)
+
+      if (inRange && balance < 1) {
+        world.applyUpwardForce(upwardforce)
+      }
+
+      setTimeout(() => {
+        setIntensity(0)
+      }, lightlifetime)
+
+      setTimeout(() => {
+        setOpacity(0)
+      }, giflifetime)
+      
+    } else {
+      if (!world.isServer) {
+        getBalance()
+      }
+    }
+  }, [active])
+
+  return (
     <app>
-      {
-        editing &&
-        <box size={blastradius} opacity={0.15} color="orange" />
-      }
-      {
-        active &&
-        <rigidbody type="kinematic">
-          <model 
-            src={modelUrl ?? "barrel.glb"}
-            collision="trimesh" 
-            onPointerDownHint="destroy" 
-            onPointerDown={destroy}
+      {active && (
+        <>
+          {editing && <box size={blastradius} opacity={0.15} color="red" />}
+          <rigidbody type="kinematic">
+            <model
+              src={modelUrl ?? 'barrel.glb'}
+              collision="trimesh"
+              onPointerDownHint={label}
+              onPointerDown={destroy}
+            />
+          </rigidbody>
+          <trigger
+            size={blastradius}
+            onEnter={enterRange}
+            onLeave={leaveRange}
           />
-        </rigidbody>
-      }
-      <billboard>
-        <image 
-          src={gifUrl ?? "explosion.gif"} 
-          scale={gifscale} 
-          position={[0,gifposition,0]} 
-          opacity={opacity}
+        </>
+      )}
+      <billboard axis="y">
+        <image
+          src={gifUrl ?? 'explosion.gif'}
+          scale={gifscale}
+          position={[0, gifposition, 0]}
+          opacity={editing ? 1 : opacity}
         />
       </billboard>
-      <audio 
-        src={soundUrl ?? "explosion.mp3" }
-        loop={false} 
-        ref={audioRef} 
+      <image
+        src={floorgifUrl ?? 'explosion-ground.gif'}
+        position={[0, 0.05, 0]}
+        rotation={[-90 * DEG2RAD, 0, 0]}
+        scale={gifscale}
+        opacity={editing ? 1 : opacity}
       />
-      <trigger 
-        size={blastradius} 
-        onEnter={enterRange} 
-        onLeave={leaveRange} 
+      <audio src={soundUrl ?? 'explosion.mp3'} loop={false} ref={audioRef} />
+      <arealight
+        ref={lightRef}
+        color={lightcolor}
+        position={[0, lightposition, 0]}
+        intensity={editing? lightintensity : intensity}
+        depth={lightscale} width={lightscale}
       />
     </app>
   )
 }
 
-export function getStore(state = {active: true}) {
+export function getStore(state = { active: true }) {
   return {
     state,
     actions: {
       destroy(state) {
-        state.active = false;
+        state.active = false
+      },
+      reset(state) {
+        state.active = true
       },
     },
     fields: [
-      { type: "float", key: "blastradius", label: "Blast Radius", initial: 3 },
-      { type: "float", key: "upwardforce", label: "Upward Force", initial: 20 },
-      { type: "float", key: "giflifetime", label: "Gif Lifetime", initial: 4000 },
-      { type: "float", key: "gifscale", label: "Gif Scale", initial: 4 },
-      { type: "float", key: "gifposition", label: "Gif Y Position", initial: 2 },
-      { type: "file", key: "gif", label: "Gif Animation", accept: ".gif" },
-      { type: "file", key: "model", label: "Model", accept: ".glb" },
-      { type: "file", key: "sound", label: "Sound", accept: ".mp3" },
+      { type: 'text', key: 'label', label: 'Hover label', initial: 'Destroy' },
+      {
+        type: "section",
+        label: "Light",
+      },
+      {
+        type: 'text',
+        key: 'lightcolor',
+        label: 'Light Color',
+        initial: 'orange',
+      },
+      {
+        type: 'float',
+        key: 'lightintensity',
+        label: 'Light Intensity',
+        initial: 10,
+      },
+      {
+        type: 'float',
+        key: 'lightscale',
+        label: 'Light Scale',
+        initial: 10,
+      },
+      {
+        type: 'float',
+        key: 'lightposition',
+        label: 'Light Position',
+        initial: 10,
+      },
+      { 
+        type: 'float',
+        key: 'lightlifetime',
+        label: 'Light Lifetime',
+        initial: 2000,
+      },
+      {
+        type: "section",
+        label: "Explosion",
+      },
+      { type: 'float', key: 'blastradius', label: 'Blast Radius', initial: 3 },
+      { type: 'float', key: 'upwardforce', label: 'Upward Force', initial: 20 },
+      {
+        type: "section",
+        label: "GIFs",
+      },
+      {
+        type: 'float',
+        key: 'giflifetime',
+        label: 'Gif Lifetime',
+        initial: 4000,
+      },
+      { type: 'float', key: 'gifscale', label: 'Gif Scale', initial: 4 },
+      {
+        type: 'float',
+        key: 'gifposition',
+        label: 'Gif Y Position',
+        initial: 2,
+      },
+      {
+        type: "section",
+        label: "Files",
+      },
+      { type: 'file', key: 'gif', label: 'Air Gif', accept: '.gif' },
+      { type: 'file', key: 'floorgif', label: 'Floor Gif', accept: '.gif' },
+      { type: 'file', key: 'model', label: 'Model', accept: '.glb' },
+      { type: 'file', key: 'sound', label: 'Sound', accept: '.mp3' },
     ],
-  };
+  }
 }
+
 ```
