@@ -32,6 +32,8 @@ export default function Destructible() {
     lightposition,
     lightlifetime,
     enablelight,
+    nftarmor,
+    nftarmorcontract,
     blastradius,
     upwardforce,
     giflifetime,
@@ -79,9 +81,9 @@ export default function Destructible() {
   useEffect(() => {
     const getBalance = async () => {
       const chain = await eth.getChain();
-      if (chain) {
-        const address = world.getAvatar().address;
-        const contract = eth.contract(SECRETS.contract);
+      const address = world.getAvatar()?.address;
+      if (chain && address) {
+        const contract = eth.contract(nftarmorcontract);
         const worlds = await contract.read("balanceOf", address);
         setBalance(worlds);
       } else {
@@ -99,7 +101,7 @@ export default function Destructible() {
           setIntensity(lightintensity);
         }
 
-        if (inRange && balance < 1) {
+        if (inRange && (balance < 1 || !nftarmor)) {
           world.applyUpwardForce(upwardforce);
         }
 
@@ -236,6 +238,22 @@ export function getStore(state = { active: true }) {
       {
         type: "section",
         label: "Explosion",
+      },
+      {
+        type: "switch",
+        key: "nftarmor",
+        label: "NFT Armor",
+        options: [
+          { label: "true", value: true },
+          { label: "false", value: false },
+        ],
+        initial: true,
+      },
+      {
+        type: "text",
+        key: "nftarmorcontract",
+        label: "NFT Armor Contract",
+        initial: "0xf53b18570db14c1e7dbc7dc74538c48d042f1332",
       },
       { type: "float", key: "blastradius", label: "Blast Radius", initial: 3 },
       { type: "float", key: "upwardforce", label: "Upward Force", initial: 20 },
