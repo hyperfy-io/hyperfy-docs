@@ -6,7 +6,7 @@ sidebar_position: 85
 ## Final code
 
 ```jsx
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from "react";
 import {
   useSyncState,
   useWorld,
@@ -16,16 +16,16 @@ import {
   DEG2RAD,
   useSignal,
   useEth,
-} from 'hyperfy'
+} from "hyperfy";
 
 // const WALLET = "0xf53b18570db14c1e7dbc7dc74538c48d042f1332";
 
 export default function Destructible() {
-  const [opacity, setOpacity] = useState(0)
-  const [inRange, setInRange] = useState(false)
-  const [balance, setBalance] = useState(0)
-  const [intensity, setIntensity] = useState(0)
-  const [active, dispatch] = useSyncState(state => state.active)
+  const [opacity, setOpacity] = useState(0);
+  const [inRange, setInRange] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [intensity, setIntensity] = useState(0);
+  const [active, dispatch] = useSyncState((state) => state.active);
   const {
     label,
     lightcolor,
@@ -33,6 +33,7 @@ export default function Destructible() {
     lightscale,
     lightposition,
     lightlifetime,
+    enablelight,
     blastradius,
     upwardforce,
     giflifetime,
@@ -42,80 +43,96 @@ export default function Destructible() {
     gif,
     floorgif,
     gifposition,
-  } = useFields()
-  const modelUrl = useFile(model)
-  const soundUrl = useFile(sound)
-  const gifUrl = useFile(gif)
-  const floorgifUrl = useFile(floorgif)
-  const audioRef = useRef()
-  const lightRef = useRef()
-  const world = useWorld()
-  const editing = useEditing()
-  const eth = useEth()
+  } = useFields();
+  const modelUrl = useFile(model);
+  const soundUrl = useFile(sound);
+  const gifUrl = useFile(gif);
+  const floorgifUrl = useFile(floorgif);
+  const audioRef = useRef();
+  const lightRef = useRef();
+  const world = useWorld();
+  const editing = useEditing();
+  const eth = useEth();
 
-  useSignal('Reset', () => {
-    dispatch('reset')
-  })
+  useSignal("Reset", () => {
+    dispatch("reset");
+  });
 
   function destroy() {
-    dispatch('destroy')
+    dispatch("destroy");
   }
 
   function enterRange(e) {
-    const localUid = world.getAvatar()
+    const localUid = world.getAvatar();
     if (localUid.uid == e) {
-      setInRange(true)
+      setInRange(true);
     }
   }
 
   function leaveRange(e) {
-    const localUid = world.getAvatar()
+    const localUid = world.getAvatar();
     if (localUid.uid == e) {
-      setInRange(false)
+      setInRange(false);
     }
   }
 
   useEffect(() => {
     const getBalance = async () => {
-      const chain = await eth.getChain()
-      console.log(chain)
+      const chain = await eth.getChain();
+      console.log(chain);
       if (chain) {
-        const address = world.getAvatar().address
-        console.log(address)
-        const contract = eth.contract(SECRETS.contract)
-        console.log(contract)
-        const worlds = await contract.read('balanceOf', address)
-        console.log(worlds)
-        setBalance(worlds)
+        const address = world.getAvatar().address;
+        console.log(address);
+        const contract = eth.contract(SECRETS.contract);
+        console.log(contract);
+        const worlds = await contract.read("balanceOf", address);
+        console.log(worlds);
+        setBalance(worlds);
       } else {
-        setBalance(0)
+        setBalance(0);
       }
-    }
+    };
     console.log(active);
 
     if (!active && !world.isServer) {
-      audioRef.current.play()
-      setOpacity(1)
-      setIntensity(lightintensity)
+      audioRef.current.play();
+      setOpacity(1);
+      if (enablelight) {
+        setIntensity(lightintensity);
+      }
 
       if (inRange && balance < 1) {
-        world.applyUpwardForce(upwardforce)
+        world.applyUpwardForce(upwardforce);
       }
 
-      setTimeout(() => {
-        setIntensity(0)
-      }, lightlifetime)
+      let timeElapsed = 0;
+      let fading = true;
+      const cleanup = world.onUpdate((delta) => {
+        console.log("xxx");
+        if (fading) {
+          timeElapsed += delta * 1000;
+          if (timeElapsed >= lightlifetime) {
+            setIntensity(0);
+            fading = false;
+          } else {
+            const intensity =
+              (1 - timeElapsed / lightlifetime) * lightintensity;
+            setIntensity(intensity);
+          }
+        }
+      });
 
       setTimeout(() => {
-        setOpacity(0)
-      }, giflifetime)
-      
+        cleanup();
+        setOpacity(0);
+      }, giflifetime);
     } else {
       if (!world.isServer) {
-        getBalance()
+        getBalance();
+        setIntensity(0);
       }
     }
-  }, [active])
+  }, [active]);
 
   return (
     <app>
@@ -124,7 +141,7 @@ export default function Destructible() {
           {editing && <box size={blastradius} opacity={0.15} color="red" />}
           <rigidbody type="kinematic">
             <model
-              src={modelUrl ?? 'barrel.glb'}
+              src={modelUrl ?? "barrel.glb"}
               collision="trimesh"
               onPointerDownHint={label}
               onPointerDown={destroy}
@@ -139,29 +156,32 @@ export default function Destructible() {
       )}
       <billboard axis="y">
         <image
-          src={gifUrl ?? 'explosion.gif'}
+          src={gifUrl ?? "explosion.gif"}
           scale={gifscale}
           position={[0, gifposition, 0]}
           opacity={editing ? 1 : opacity}
         />
       </billboard>
       <image
-        src={floorgifUrl ?? 'explosion-ground.gif'}
+        src={floorgifUrl ?? "explosion-ground.gif"}
         position={[0, 0.05, 0]}
         rotation={[-90 * DEG2RAD, 0, 0]}
         scale={gifscale}
         opacity={editing ? 1 : opacity}
       />
-      <audio src={soundUrl ?? 'explosion.mp3'} loop={false} ref={audioRef} />
-      <arealight
-        ref={lightRef}
-        color={lightcolor}
-        position={[0, lightposition, 0]}
-        intensity={editing? lightintensity : intensity}
-        depth={lightscale} width={lightscale}
-      />
+      <audio src={soundUrl ?? "explosion.mp3"} loop={false} ref={audioRef} />
+      {enablelight && (
+        <arealight
+          ref={lightRef}
+          color={lightcolor}
+          position={[0, lightposition, 0]}
+          intensity={editing ? lightintensity : intensity}
+          depth={lightscale}
+          width={lightscale}
+        />
+      )}
     </app>
-  )
+  );
 }
 
 export function getStore(state = { active: true }) {
@@ -169,81 +189,90 @@ export function getStore(state = { active: true }) {
     state,
     actions: {
       destroy(state) {
-        state.active = false
+        state.active = false;
       },
       reset(state) {
-        state.active = true
+        state.active = true;
       },
     },
     fields: [
-      { type: 'text', key: 'label', label: 'Hover label', initial: 'Destroy' },
+      { type: "text", key: "label", label: "Hover label", initial: "Explode" },
       {
         type: "section",
         label: "Light",
       },
       {
-        type: 'text',
-        key: 'lightcolor',
-        label: 'Light Color',
-        initial: 'orange',
+        type: "switch",
+        key: "enablelight",
+        label: "Enable Light",
+        options: [
+          { label: "true", value: true },
+          { label: "false", value: false },
+        ],
+        initial: true,
       },
       {
-        type: 'float',
-        key: 'lightintensity',
-        label: 'Light Intensity',
+        type: "text",
+        key: "lightcolor",
+        label: "Light Color",
+        initial: "orange",
+      },
+      {
+        type: "float",
+        key: "lightintensity",
+        label: "Light Intensity",
+        initial: 1000,
+      },
+      {
+        type: "float",
+        key: "lightscale",
+        label: "Light Scale",
         initial: 10,
       },
       {
-        type: 'float',
-        key: 'lightscale',
-        label: 'Light Scale',
+        type: "float",
+        key: "lightposition",
+        label: "Light Position",
         initial: 10,
       },
       {
-        type: 'float',
-        key: 'lightposition',
-        label: 'Light Position',
-        initial: 10,
-      },
-      { 
-        type: 'float',
-        key: 'lightlifetime',
-        label: 'Light Lifetime',
-        initial: 2000,
+        type: "float",
+        key: "lightlifetime",
+        label: "Light Lifetime",
+        initial: 1000,
       },
       {
         type: "section",
         label: "Explosion",
       },
-      { type: 'float', key: 'blastradius', label: 'Blast Radius', initial: 3 },
-      { type: 'float', key: 'upwardforce', label: 'Upward Force', initial: 20 },
+      { type: "float", key: "blastradius", label: "Blast Radius", initial: 3 },
+      { type: "float", key: "upwardforce", label: "Upward Force", initial: 20 },
       {
         type: "section",
         label: "GIFs",
       },
       {
-        type: 'float',
-        key: 'giflifetime',
-        label: 'Gif Lifetime',
+        type: "float",
+        key: "giflifetime",
+        label: "Gif Lifetime",
         initial: 4000,
       },
-      { type: 'float', key: 'gifscale', label: 'Gif Scale', initial: 4 },
+      { type: "float", key: "gifscale", label: "Gif Scale", initial: 4 },
       {
-        type: 'float',
-        key: 'gifposition',
-        label: 'Gif Y Position',
+        type: "float",
+        key: "gifposition",
+        label: "Gif Y Position",
         initial: 2,
       },
       {
         type: "section",
         label: "Files",
       },
-      { type: 'file', key: 'gif', label: 'Air Gif', accept: '.gif' },
-      { type: 'file', key: 'floorgif', label: 'Floor Gif', accept: '.gif' },
-      { type: 'file', key: 'model', label: 'Model', accept: '.glb' },
-      { type: 'file', key: 'sound', label: 'Sound', accept: '.mp3' },
+      { type: "file", key: "gif", label: "Air Gif", accept: ".gif" },
+      { type: "file", key: "floorgif", label: "Floor Gif", accept: ".gif" },
+      { type: "file", key: "model", label: "Model", accept: ".glb" },
+      { type: "file", key: "sound", label: "Sound", accept: ".mp3" },
     ],
-  }
+  };
 }
-
 ```
