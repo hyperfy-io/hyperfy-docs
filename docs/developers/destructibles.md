@@ -91,7 +91,7 @@ export default function Destructible() {
 
     if (!world.isServer) {
       if (!active) {
-        world.trigger("destroy");
+        world.trigger("Destroy");
         audioRef.current.play();
         setOpacity(1);
 
@@ -143,13 +143,9 @@ export default function Destructible() {
               onPointerDown={destroy}
             />
           </rigidbody>
-          <trigger
-            size={blastradius}
-            onEnter={enterRange}
-            onLeave={leaveRange}
-          />
         </>
       )}
+      <trigger size={blastradius} onEnter={enterRange} onLeave={leaveRange} />
       <billboard axis="y">
         <image
           src={gifUrl ?? "explosion.gif"}
@@ -274,7 +270,7 @@ export function getStore(state = { active: true }) {
       },
       {
         type: "trigger",
-        name: "destroy",
+        name: "Destroy",
       },
     ],
   };
