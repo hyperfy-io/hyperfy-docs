@@ -18,8 +18,6 @@ import {
   useEth,
 } from "hyperfy";
 
-// const WALLET = "0xf53b18570db14c1e7dbc7dc74538c48d042f1332";
-
 export default function Destructible() {
   const [opacity, setOpacity] = useState(0);
   const [inRange, setInRange] = useState(false);
@@ -53,10 +51,12 @@ export default function Destructible() {
   const world = useWorld();
   const editing = useEditing();
   const eth = useEth();
+  useSignal("Reset", reset);
+  useSignal("Destroy", destroy);
 
-  useSignal("Reset", () => {
+  function reset() {
     dispatch("reset");
-  });
+  }
 
   function destroy() {
     dispatch("destroy");
@@ -79,55 +79,51 @@ export default function Destructible() {
   useEffect(() => {
     const getBalance = async () => {
       const chain = await eth.getChain();
-      console.log(chain);
       if (chain) {
         const address = world.getAvatar().address;
-        console.log(address);
         const contract = eth.contract(SECRETS.contract);
-        console.log(contract);
         const worlds = await contract.read("balanceOf", address);
-        console.log(worlds);
         setBalance(worlds);
       } else {
         setBalance(0);
       }
     };
-    console.log(active);
 
-    if (!active && !world.isServer) {
-      audioRef.current.play();
-      setOpacity(1);
-      if (enablelight) {
-        setIntensity(lightintensity);
-      }
+    if (!world.isServer) {
+      if (!active) {
+        world.trigger("destroy");
+        audioRef.current.play();
+        setOpacity(1);
 
-      if (inRange && balance < 1) {
-        world.applyUpwardForce(upwardforce);
-      }
-
-      let timeElapsed = 0;
-      let fading = true;
-      const cleanup = world.onUpdate((delta) => {
-        console.log("xxx");
-        if (fading) {
-          timeElapsed += delta * 1000;
-          if (timeElapsed >= lightlifetime) {
-            setIntensity(0);
-            fading = false;
-          } else {
-            const intensity =
-              (1 - timeElapsed / lightlifetime) * lightintensity;
-            setIntensity(intensity);
-          }
+        if (enablelight) {
+          setIntensity(lightintensity);
         }
-      });
 
-      setTimeout(() => {
-        cleanup();
-        setOpacity(0);
-      }, giflifetime);
-    } else {
-      if (!world.isServer) {
+        if (inRange && balance < 1) {
+          world.applyUpwardForce(upwardforce);
+        }
+
+        let timeElapsed = 0;
+        let fading = true;
+        const cleanup = world.onUpdate((delta) => {
+          if (fading) {
+            timeElapsed += delta * 1000;
+            if (timeElapsed >= lightlifetime) {
+              setIntensity(0);
+              fading = false;
+            } else {
+              const intensity =
+                (1 - timeElapsed / lightlifetime) * lightintensity;
+              setIntensity(intensity);
+            }
+          }
+        });
+
+        setTimeout(() => {
+          cleanup();
+          setOpacity(0);
+        }, giflifetime);
+      } else {
         getBalance();
         setIntensity(0);
       }
@@ -272,6 +268,14 @@ export function getStore(state = { active: true }) {
       { type: "file", key: "floorgif", label: "Floor Gif", accept: ".gif" },
       { type: "file", key: "model", label: "Model", accept: ".glb" },
       { type: "file", key: "sound", label: "Sound", accept: ".mp3" },
+      {
+        type: "section",
+        label: "Triggers",
+      },
+      {
+        type: "trigger",
+        name: "destroy",
+      },
     ],
   };
 }
