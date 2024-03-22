@@ -49,12 +49,7 @@ The Shifter app allows you to place a custom model in world which dynamically mo
 If you selected `No` for `Controlled`:
 
 - **Type**: `Ping Pong` to move the model back and forth between its start and end point, `Loop` to loop the movement between its start and end point.
-<!-- 
-If you selected `Yo` for `Controlled`:
-
-
-- **Sync**: 🟠
-  -->
+<!-- If you selected `Yo` for `Controlled`: - **Sync**: 🟠 -->
 
 #### Timing
 
