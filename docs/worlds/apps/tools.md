@@ -115,7 +115,7 @@ The Power-up app allows you to dynamically adjust move speed, jump force and fly
 - **Rotation**: The `X`, `Y`, `Z` values for the world rotation of the app.
 - **Name**: Custom name for the power-up.
 - **Duration (s)**: The length of time the power-up is applied to the player.
-- **Group**: Group multiple power-ups. If there's no group set then all power-ups people get will stacked. If there is a group set, then only the highest value for each power-up will apply. 🟠
+- **Group**: Group multiple power-ups. If there's no group set then all power-ups people get will stacked. If there is a group set, then only the highest value for each power-up will apply.
 
 #### Move Speed
 

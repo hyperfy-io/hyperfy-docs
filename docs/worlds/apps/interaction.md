@@ -18,7 +18,7 @@ The POI app allows you to create a point of interest in your world that can be u
 - **Model**: Allows you to upload a `.glb` model for your POI.
 - **Animation**: Select the animation/s from the `.glb` file to use with the model.
 - **Greeting**: Allows you to set a greeting message for when a user interacts with the POI.
-- **Icon Offset**: 🟠
+- **Icon Offset**: Icon offset.
 - **Visible**: Allows you to set when the POI should be active.
 - **Messages**: Allows you to create a set of custom prompts and responses for players to engage with in a structured format.
 
@@ -49,10 +49,12 @@ The Shifter app allows you to place a custom model in world which dynamically mo
 If you selected `No` for `Controlled`:
 
 - **Type**: `Ping Pong` to move the model back and forth between its start and end point, `Loop` to loop the movement between its start and end point.
-
+<!-- 
 If you selected `Yo` for `Controlled`:
 
+
 - **Sync**: 🟠
+  -->
 
 #### Timing
 
