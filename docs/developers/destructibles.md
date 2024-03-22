@@ -3,44 +3,39 @@ sidebar_label: "Guide: Destructibles"
 sidebar_position: 85
 ---
 
-In this tutorial we will be showing you how to create a destructible barrel that tosses anyone caught in its effect radius into the air.
+# Destructibles
 
-We will use many of Hyperfy's most useful features including sync state, custom fields, file uploads, editor-only helpers, component references, communicating with other apps using signals and triggers, effects that resolve over time, NFT ownership checks, and much more.
+In this tutorial we will be showing you how to create a destructible barrel that tosses anyone caught in its blast radius into the air. We will use many powerful Hyperfy features including sync state, custom fields, file uploads, editor-only helpers, component references, signals, triggers, side effects that resolve over time, NFT ownership checks, and more.
 
-All of the media files can be found in the sample app in the [Hyperfy-recipes](https://github.com/hyperfy-io/hyperfy-recipes) repository. If you don't have files with the same name/type in your project's `assets` folder you may encounter bugs, please take a moment to download the files and add them to your project.
+All of the media used in this project can be found in the `destructibles` app in the [Hyperfy-recipes](https://github.com/hyperfy-io/hyperfy-recipes) repository. Take a moment to download the files in the `/assets` folder and add them to your project to avoid reference errors when we use them later.
 
 This advanced tutorial expects you to have an understanding of the Hyperfy SDK and Javascript/React code patterns. We won't explain everything in detail so please see the relevant API documentation pages for more information, and feel free to join our [Discord](https://discord.gg/TGtyTEWB2X) and ask questions!
 
 [Skip to final code](#final-code)
 
-## Design
+## App Design
 
-We are building an app that does the following:
-
-- While active, the app appears as a red barrel
+- While active, only a red barrel is visible
 - When the barrel is clicked:
   - The barrel disappears
-  - a sound effect plays
-  - a light flashes briefly then fades away
-  - gifs appear briefly then disappear
+  - A sound effect plays
+  - A light flashes briefly then fades away over time (light can be disabled)
+  - GIFs appear briefly then disappear
   - any user inside a trigger square is shot into the air
-    - If the user owns at least 1 nft of a specific contract they are protected from this effet
+    - If the user owns at least 1 nft of a specific contract they are protected from this effect (can be disabled)
 - When the user is in the editor menu, the following changes will happen until the editor is closed:
-  - the light turns on
-  - the gif appears and loops
-  - a transparent box appears which scales with the blast radius
-    - trigger is not visible if the barrel has been exploded, to make it clear it's not active and tweak visuals
+  - The light turns on
+  - The gifs appear and loop
+  - A transparent box appears which scales with the blast radius
+    - trigger is not visible if the barrel has been exploded, to make it clear it's not active and to tweak visuals
 - All variables exposed as editor fields
-- Barrel state synchronized across players
-- Expose triggers to interact with external apps when
+- Barrel state synchronized across network
+- Expose triggers to interact with external apps
 - Expose signals so other apps can interact with ours, and the app can be controlled in the editor menu
 
 ## Model
 
-We'll adding the barrel model with a kinematic rigid body so it interacts with the physics engine. Put a GLB model in your app's `assets` folder with the name `barrel.glb`.
-
-<details>
-<summary>Click to view code</summary>
+Start by adding a barrel model with a kinematic rigid body so it interacts with the physics engine. Make sure you have a GLB model in your app's `/assets` folder with the name `barrel.glb`.
 
 ```jsx
 import React from "react";
@@ -58,17 +53,15 @@ export default function Destructible() {
 }
 ```
 
-</details>
-
 ## Sync state
 
-Our app will have two states, active and inactive. By default the app will be in active mode, and when clicked the barrel will be destroyed and will no longer be active.
+Our app will have two states, active and inactive. By default the app will be active, and when clicked the barrel will be destroyed and will no longer be active.
 
-To synchronize this state across multiplayer we import the useSyncState hook from the hyperfy library. This hook is very similar to useState: you tell it which variable to bind to and it returns the networked variable and a dispatch function to send updates to other players. The dispatch actions are defined in the actions section of a getStore function you export (very similar to redux).
+To synchronize this state across multiplayer we import the useSyncState hook from the hyperfy library. This hook is very similar to useState: you tell it which variable to bind to and it returns the networked state variable and a dispatch function to send updates to other players. The dispatch actions are defined in the actions section of a getStore function you export (very similar to Redux if you're familiar).
 
-Import `useSyncState` and use it to create the synchronized state store. Outside of our app's default function add the getStore function with a `Destroy(state)` action (NOTE: the capital D is just to differentiate the two, don't mix them up).
+Import `useSyncState` and use it to create the synchronized state object. Outside of our app's default function add the getStore function with a `Destroy(state)` action (NOTE: the capital D is just to differentiate the two, don't mix them up).
 
-To make the app interactive we add an onPointerDown event to the model. This event fires when a user is in range of the model and clicks. We pass it a callback function `destroy()`, which just calls the `dispatch()` function sending the `Destroy` action across the network. When any client receives the `Destroy` action the corresponding `Destroy` function is executed, setting the state variable `active` to false. We will use this `active` variable later on.
+To make the app interactive we add an `onPointerDown` event to the model. This event fires when a user is in range of the model and clicks. We pass it a callback function `destroy()`, which calls the `dispatch()` function, sending the `Destroy` action across the network. When any client receives the `Destroy` action, the corresponding `Destroy` function is executed, setting the state variable `active` to false. We will use this `active` variable later on.
 
 <details>
 <summary>Click to view code</summary>
@@ -84,7 +77,7 @@ export default function Destructible() {
 
   //highlight-start
   function destroy() {
-    dispatch("destroy");
+    dispatch("Destroy");
   }
   //highlight-end
 
@@ -107,7 +100,7 @@ export function getStore(state = { active: true }) {
   return {
     state,
     actions: {
-      destroy(state) {
+      Destroy(state) {
         state.active = false;
       },
     },
@@ -120,9 +113,9 @@ export function getStore(state = { active: true }) {
 
 ## Editor fields
 
-The barrel currently has no text hint when you hover over it. We can easily add some hard-coded text to this component, but it's usually a good idea to expose these variables to the editor (at least during development). This lets you tweak the variables in your code from within the hyperfy editor, giving consumers of your app a more customizable experience.
+The barrel currently has no text hint when you hover over it. We can easily add some hard-coded text to this component, but it's usually a good idea to expose these variables to the editor (at least during development). This lets you tweak your variables from within the hyperfy editor, giving consumers of your app a more customizable experience.
 
-First we import `useFields` from the hyperfy library and call it inside our app function. We use object destructuring syntax on the result to get our `label` variable, which will be tied to a field in the editor UI. We add the `onPointerDownHint` prop to our model and give it the `label` value.
+First we import `useFields` from the hyperfy library and call it inside our app function. We use object destructuring syntax on the result to get our `label` variable, which will be tied to a field in the editor UI. We add the `onPointerDownHint` prop to our model and give it the `label` value for the pointer hint.
 
 A new `fields` property must be added to the object returned from the `getStore` function which contains an array of all the editor fields we want to expose to the user. When destructuring the `useFields` result, the variable names must match a key in the fields array. Now you can change the hover label of the model through the editor!
 
@@ -182,7 +175,7 @@ export function getStore(state = { active: true }) {
 
 ## Handle user file uploads
 
-We can make our barrel model customizable with an editor field as well but we need a new hook to handle the file uploads. The `useFile` hook takes a file uploaded from an editor field and returns a cloud URl of the asset.
+We can make our barrel model customizable with an editor field as well but we need a new hook to handle the file uploads. The `useFile` hook takes a file uploaded from an editor field and returns a cloud URL of the asset.
 
 Import `useFile` from hyperfy, add the `model` property to the `useFields` destructure, add a `file` field to the fields array (and a `category` for files as well), pass the `model` to the `useFile` hook, and swap out the src prop in the model component. the `??` syntax will default to our barrel model (this would throw an error without it).
 
@@ -253,15 +246,13 @@ export function getStore(state = { active: true }) {
 
 ## Signals
 
-If we want other apps to be able to set the state of our custom app we need to add signals. This also allows us to control the app's state from within the editor UI.
-
-Import useSignal from hyperfy, then call it by passing in the name of our signal `Destroy` as well as a callback function, which in our case is `destroy`. When the `Destroy` signal is received, our app will execute the same exact code as it would if you had clicked on the model.
+If we want other apps to be able to set the state of our custom app we need to add signals. This also allows us to control the app's state from within the editor UI. Import `useSignal` from hyperfy, then call it by passing in the name of our signal `Destroy` as well as a callback function, which in our case is `destroy`. When the `Destroy` signal is received, our app will execute the same exact code as it would if you had clicked on the model.
 
 While we're in there let's add a `Reset` signal, a corresponding `reset` function, and a sync state action that sets `active` to true.
 
 The basic state is setup now so let's add some conditional rendering. Check the `active` variable before rendering the `rigidbody` component. The model will now only appear when the state is active. Try clicking on the model as well as playing with the Destroy and Reset buttons in the editor to see the model appear and disappear.
 
-We'll also quickly add some triggers for Destroy and Reset, which other apps can listen for and react. Import `useWorld` from hyperfy and call it to get a reference to the world object. We add the trigger editor fields and call them using `world.trigger()`;
+We'll also quickly add some triggers for Destroy and Reset, which other apps can listen for and react. Import `useWorld` from hyperfy and call it to get a reference to the world object. We add the trigger editor fields and can trigger them using `world.trigger()` but we will do that later.
 
 <details>
 <summary>Click to view code</summary>
@@ -364,25 +355,19 @@ export function getStore(state = { active: true }) {
 
 ## Light
 
-This is where it gets a bit more complex. We are going to add a light component and have it react to the sync state variable. When the state of `active` changes, if the state is `false` we will briefly flash the light and have it fade out over a specified duration. If the state is `true` we will reset things.
+This is where it gets a bit more complex. We are going to add a light component and have it react to the sync state variable. When the state of `active` changes, if the state is `false` we will briefly flash the light and have it fade out over a specified duration. If the state is `true` we will reset everything.
 
-We added a `arealight` component with a ton of editor fields to control the properties of the light including position, sound, and color. The component is conditionally rendered based on an enablelight editor field, which allows the user to disable the dynamic light. We also added a `giflifetime` editor field which will be used to time the light cleanup.
+Add an `arealight` component plus some editor fields to control the properties of the light including position, intensity, and color. Conditionally render the component based on an enablelight editor field, which allows the user to disable the dynamic light. Also, we need to add a `giflifetime` editor field which will be used to clean up the light side effect.
 
-To adjust the intensity of our light we need to import `useState` from react and create an `intensity` state variable which we can set using `setIntensity`. We also need a reference to our `audio` component, so we import `useRef` from react and create a `lightRef` which we pass into the `ref` prop of our sound.
+To adjust the intensity of our light we need to import `useState` from react and create an `intensity` state variable which we can set using `setIntensity`. We also need a reference to our `light` component, so we import `useRef` from react and create a `lightRef` which we pass into the `ref` prop of our light.
 
-Because we are dealing with side-effects we need to use useEffect from react. We will have the `active` variable as our effect's dependency.
+Because we are dealing with side-effects we need to use `useEffect` from react. We will us the `active` variable as our effect's dependency. In order to avoid glitches on the server, we need to check if the code is running on the client or the server. In our effect, we first check if the code is running on the client by checking `!world.isServer`. If the app state is NOT active (meaning it has been destroyed), use `setIntensity` to turn the light on (if it's enabled in the editor field). If our state is active, we reset the light intensity back to 0.
 
-In order to avoid glitches on the server, we need to check if the code is running on the client or the server. In our effect, we first check if the code is running on the client by checking `!world.isServer`.
+Next, we create a `world.onUpdate` function, which will be fired every frame and give us a `delta` variable representing the amount of time in seconds since the last frame. We assign this to a variable `cleanup` which will be called later, to unsubscribe from the event. Inside the `onUpdate` function we add up the delta time to our total time elapsed, and if the elapsed time is greater than our `lightlifetime` we set the intensity of the light to 0 and set fading=false to prevent further loops before cleanup. If not enough time has elapsed, we do a linear fade between our maximum intensity and 0, and set the intensity to that value.
 
-if the app state is NOT active, use `setIntensity` to set it to the lightintensity variable, which will turn the light on (if it's enabled in the editor field).
+The onUpdate function would run forever like this unless we unsubscribe to it. This is why we use setTimeout to cleanup this function. After a specified duration, the cleanup function is called and the opacity is set to 0. The duration is called `giflifetime` because we will also be cleaning up the gif effect in here later. This might be a messy way to do this in React but it works well enough.
 
-Next, we create a `world.onUpdate` function, which will be fired every frame and give us a `delta` variable representing the amount of time in seconds since the last frame. We assign this to a variable `cleanup` which will be called later, to unsubscribe from the event.
-
-Inside the `onUpdate` function we add up the delta time to our total time elapsed, and if the elapsed time is greater than our light lifetime we set the intensity of the light to 0 and prevent further loops. If not enough time has elapsed, we do a linear fade between our maximum intensity and 0, and set the intensity to that value.
-
-The onUpdate function would run forever like this unless we unsubscribe to it. This is why we use setTimeout to cleanup this function. After a specified duration, the cleanup function is called and the opacity is set to 0. The duration is called `giflifetime` because we will also be cleaning up the gif effect in here later.
-
-If our state is active, we reset the light intensity back to 0.
+We also added in the `world.trigger()` calls in the appropriate places now, because this section wasn't big enough..
 
 <details>
 <summary>Click to view code</summary>
@@ -596,9 +581,9 @@ export function getStore(state = { active: true }) {
 
 ## GIFs
 
-Next to add some more visuals to the effect. When the barrel is destroyed, we will briefly show an animated gif and have it play for a few seconds before disappearing. Hyperfy ignores loop count otherwise you could simply use a single loop gif but this gives us more opportunity to learn.
+Next to add some more visuals to the effect. When the barrel is destroyed, we will briefly show an animated gif and have it play for a few seconds before disappearing.
 
-We use the `useState` hook to create `opacity` and `setOpacity`, add4 new editor fields to upload the gifs and control position/scale, set up a file hooks for the uploads, and add the new image components. One image will be inside a `billboard` component, which will always face towards the canera but locked to the vertical axis. The other will be flat on the ground with a fixed rotation. To set the angle of the gif on the ground we import `DEG2RAD` from hyperfy and multiply it by our degrees to get our rotation in radians.
+We use the `useState` hook to create an `opacity` state object, add new editor fields to upload the gifs and control position/scale, set up file hooks for the uploads, and add the new image components (this is all stuff we've done already). One image will be inside a `billboard` component, which will always face towards the camera but locked to the vertical (y) axis. The other image will be flat on the ground with a fixed rotation. To set the angle of the GIF on the ground we import `DEG2RAD` from hyperfy and multiply it by our degrees to get our rotation in radians.
 
 Inside our useEffect callback we set opacity to 1 when `active` is false, and set it back to 0 at the end of the `giflifetime` and if `active` is true.
 
@@ -632,7 +617,6 @@ export default function Destructible() {
     lightposition,
     lightlifetime,
     enablelight,
-    //highlight-next-line
     giflifetime,
     //highlight-next-line
     gifscale,
@@ -759,7 +743,6 @@ export function getStore(state = { active: true }) {
     },
     fields: [
       { type: "text", key: "label", label: "Hover label", initial: "Explode" },
-
       {
         type: "section",
         label: "Light",
@@ -977,8 +960,14 @@ export default function Destructible() {
         scale={gifscale}
         opacity={opacity}
       />
-      //highlight-next-line
-      <audio src={soundUrl ?? "explosion.mp3"} loop={false} ref={audioRef} />
+      //highlight-start
+      <audio
+        src={soundUrl ?? "explosion.mp3"}
+        loop={false}
+        autoplay={false}
+        ref={audioRef}
+      />
+      //highlight-end
       {enablelight && (
         <arealight
           ref={lightRef}
@@ -1072,7 +1061,6 @@ export function getStore(state = { active: true }) {
         type: "section",
         label: "Files",
       },
-
       { type: "file", key: "gif", label: "Air Gif", accept: ".gif" },
       { type: "file", key: "floorgif", label: "Floor Gif", accept: ".gif" },
       { type: "file", key: "model", label: "Model", accept: ".glb" },
@@ -1099,13 +1087,11 @@ export function getStore(state = { active: true }) {
 
 ## Physics
 
-When the barrel is destroyed, we should have some kind of impact on the user. Let's throw them into the air!
+When the barrel is destroyed, we should have some kind of impact on the user. Let's throw them into the air! A trigger component can be used to keep track of who is inside the blast radius of the barrel.
 
-A trigger component can be used to keep track of who is inside the blast radius of the barrel. We will import `useEditing` and call it to create the `editing` variable. This tells us if the user has the editor open which we will use to show the user a square which represents the blast radius.
+We will import `useEditing` and call it to create the `editing` variable. This tells us if the user has the editor open which we will use to show the user a cube which represents the blast radius. Create a new state variable called inRange, which we use to keep track of whether the local player is in range of the trigger box. We need to add two new editor fields, blastradius which will determine the size of the trigger box, and upwardforce which will be the force applied to any user inside the trigger upon destruction.
 
-Create a new state variable called inRange, which we use to keep track if the local player is in range of the trigger box. We need to add two new editor fields, blastradius which will determine the size of the trigger box, and upwardforce which will be the force applied to any user inside the trigger upon destruction.
-
-Create two callback functions, one for a user entering the trigger box and one for when a user exits the trigger box. When other users enter the box we want to ignore them, so check if the user that entered/exited the box has the same user ID as the local client, and if so set the `inRange` state accordingly. Now in the useEffect, we can check if the user is inRange, and if so we use `world.applyUpwareForce()` to send them flying into the sky.
+Create two callback functions, one for a user entering the trigger box and one for a user leaving the trigger box. When other users enter the box we want to ignore them (we can only apply physics force on the local avatar), so check if the user that entered/exited the box has the same user ID as the local client, and if so set the `inRange` state accordingly. Now in the useEffect, we can check if the user is inRange, and if so we use `world.applyUpwareForce()` to send them flying into the sky.
 
 We conditionally render a sem-transparent red box with the same size as the `blastradius` editor variable, which acts as a scale guide for the trigger. Boxes and triggers have the same scale so a box is a useful stand-in to visualize the position and scale of a trigger. This box only shows up when the app state is active and the editor is open. Add the trigger component and hook it up to the callback functions we defined earlier.
 
@@ -1129,6 +1115,7 @@ import {
 
 export default function Destructible() {
   const [opacity, setOpacity] = useState(0);
+  //highlight-next-line
   const [inRange, setInRange] = useState(false);
   const [intensity, setIntensity] = useState(0);
   const [active, dispatch] = useSyncState((state) => state.active);
@@ -1269,7 +1256,12 @@ export default function Destructible() {
         //highlight-next-line
         opacity={editing ? 1 : opacity}
       />
-      <audio src={soundUrl ?? "explosion.mp3"} loop={false} ref={audioRef} />
+      <audio
+        src={soundUrl ?? "explosion.mp3"}
+        loop={false}
+        autoplay={false}
+        ref={audioRef}
+      />
       {enablelight && (
         <arealight
           ref={lightRef}
@@ -1342,14 +1334,14 @@ export function getStore(state = { active: true }) {
         label: "Light Lifetime",
         initial: 1000,
       },
+      //highlight-start
       {
         type: "section",
         label: "Explosion",
       },
-      //highlight-next-line
       { type: "float", key: "blastradius", label: "Blast Radius", initial: 3 },
-      //highlight-next-line
       { type: "float", key: "upwardforce", label: "Upward Force", initial: 20 },
+      //highlight-end
       {
         type: "section",
         label: "GIFs",
@@ -1572,7 +1564,12 @@ export default function Destructible() {
         scale={gifscale}
         opacity={editing ? 1 : opacity}
       />
-      <audio src={soundUrl ?? "explosion.mp3"} loop={false} ref={audioRef} />
+      <audio
+        src={soundUrl ?? "explosion.mp3"}
+        loop={false}
+        autoplay={false}
+        ref={audioRef}
+      />
       {enablelight && (
         <arealight
           ref={lightRef}
@@ -1872,7 +1869,12 @@ export default function Destructible() {
         scale={gifscale}
         opacity={editing ? 1 : opacity}
       />
-      <audio src={soundUrl ?? "explosion.mp3"} loop={false} ref={audioRef} />
+      <audio
+        src={soundUrl ?? "explosion.mp3"}
+        loop={false}
+        autoplay={false}
+        ref={audioRef}
+      />
       {enablelight && (
         <arealight
           ref={lightRef}
