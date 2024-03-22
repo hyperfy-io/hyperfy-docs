@@ -112,7 +112,7 @@ The particle app allows you to create a billboard particle system in your world.
 
 ### Overview
 
-The terrain mesh app allows you to build larger terrains with high quality textures using a technique called "Splatmaps" that are highly performant. To learn more about how to implement this within Hyperfy, visit [here](https://docs.hyperfy.io/designers/terrain).
+The terrain mesh app allows you to build larger terrains with high quality textures using a technique called "Splatmaps" that are highly performant. To learn more about how to implement this within Hyperfy, visit [here](../../designers/terrain).
 
 ![hadfjpoa](environment4.png)
 

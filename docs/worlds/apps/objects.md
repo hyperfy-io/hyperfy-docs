@@ -145,7 +145,6 @@ The Platform App allows for the creation and configuration of movable platforms 
 
 The Avatar App enables users to equip custom VRM avatars within the virtual world.
 
-![Avatar](https://hackmd.io/_uploads/SJzsLPyCa.jpg)
 ![Avatar](objects4.png)
 
 ### Configuration Parameters

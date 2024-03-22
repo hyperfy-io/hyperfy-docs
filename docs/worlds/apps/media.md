@@ -6,7 +6,6 @@
 
 The video app allows users to bring video content in world by uploading a video file or playing from a URL.
 
-![image](https://hackmd.io/_uploads/H1JYu8q3p.png)
 ![image](media1.png)
 
 ### Configuration Parameters
