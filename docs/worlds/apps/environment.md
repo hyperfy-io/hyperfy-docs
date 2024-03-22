@@ -6,9 +6,9 @@
 
 The video app allows users to bring video content in world by uploading a video file or playing from a URL.
 
-![Omega Canis](https://hackmd.io/_uploads/By9rxKc3T.png)
+![Omega Canis](environment1.png)
 
-![aghfaw4erg](https://hackmd.io/_uploads/Hy2r-tq2a.jpg)
+![aghfaw4erg](environment2.png)
 
 _An example of a custom sky background, and the same background applied to a sky with a custom HDR and fog applied to it._
 
@@ -26,7 +26,7 @@ _An example of a custom sky background, and the same background applied to a sky
 
 ## Particles
 
-![agasdg](https://hackmd.io/_uploads/H1B2kcqnp.jpg)
+![agasdg](environment3.png)
 
 ### Overview
 
@@ -114,7 +114,7 @@ The particle app allows you to create a billboard particle system in your world.
 
 The terrain mesh app allows you to build larger terrains with high quality textures using a technique called "Splatmaps" that are highly performant. To learn more about how to implement this within Hyperfy, visit [here](https://docs.hyperfy.io/designers/terrain).
 
-![hadfjpoa](https://hackmd.io/_uploads/rJas4_02a.jpg)
+![hadfjpoa](environment4.png)
 
 ### Configuration Parameters
 
@@ -149,7 +149,7 @@ The terrain mesh app allows you to build larger terrains with high quality textu
 
 The light app allows you to add static and dynamic light sources to your world.
 
-![Area Light](https://hackmd.io/_uploads/rknqePyR6.jpg)
+![Area Light](environment5.png)
 
 _An `Area` light with the same `Width` and `Depth` as a video, using `Video` as the `Source` for the light._
 
@@ -181,7 +181,7 @@ Depending on the `Type` selected, the available options will change:
 
 The water app allows you to create a realistic dynamic water texture for your world.
 
-![Water](https://hackmd.io/_uploads/BJK0-vJCa.jpg)
+![Water](environment6.png)
 
 ### Configuration Parameters
 
@@ -201,7 +201,7 @@ The water app allows you to create a realistic dynamic water texture for your wo
 
 The sun app allows you to create a global directional light source for your world.
 
-![Sun](https://hackmd.io/_uploads/SyGYMw1Aa.jpg)
+![Sun](environment7.png)
 
 ### Configuration Parameters
 
@@ -221,7 +221,7 @@ The sun app allows you to create a global directional light source for your worl
 
 The terrain allows you to use simple terrain presets in your world.
 
-![Terrain](https://hackmd.io/_uploads/HkjJQPkRT.jpg)
+![Terrain](environment8.png)
 
 ### Configuration Parameters
 
@@ -241,7 +241,7 @@ The terrain allows you to use simple terrain presets in your world.
 
 The fog app allows you to implement a fog source into your world.
 
-![Fog](https://hackmd.io/_uploads/HJRrQvyAa.jpg)
+![Fog](environment9.png)
 
 ### Configuration Parameters
 

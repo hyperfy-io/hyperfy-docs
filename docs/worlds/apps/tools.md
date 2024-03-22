@@ -6,7 +6,7 @@
 
 The Keypad app allows players to enter a numeric combination to activate specific in-world actions. The app has 4 possible combination triggers. This is typically activated with a [Smart Object](/fdEdx1aFQ9a1nDlNa54tkw/view#Smart-Object).
 
-![Keypad](https://hackmd.io/_uploads/SyYHPdk0p.jpg)
+![Keypad](tools1.png)
 
 ### Configuration Parameters
 
@@ -138,7 +138,7 @@ The Power-up app allows you to dynamically adjust move speed, jump force and fly
 
 The Guestbook app enables the creation of a digital address book for logged-in users who sign with their wallets, allowing for the download of this data later. This is typically activated with a [Smart Object](/fdEdx1aFQ9a1nDlNa54tkw/view#Smart-Object).
 
-![Guestbook1](https://hackmd.io/_uploads/Hyv2tdkCp.jpg)
+![Guestbook1](tools2.png)
 
 ### Configuration Parameters
 

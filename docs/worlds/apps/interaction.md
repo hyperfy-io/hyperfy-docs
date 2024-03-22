@@ -6,7 +6,7 @@
 
 The POI app allows you to create a point of interest in your world that can be used in conjunction with other apps to trigger, transport, or display different world elements.
 
-![POI](https://hackmd.io/_uploads/B1f-TDy0T.jpg)
+![POI](interaction1.png)
 
 ### Configuration Parameters
 
@@ -65,7 +65,7 @@ If you selected `Yo` for `Controlled`:
 
 The Flying app allows you to enable flying in-world for players when they double-tap `Spacebar`.
 
-![Flying](https://hackmd.io/_uploads/rJgw6P1Ca.jpg)
+![Flying](interaction2.png)
 
 ### Configuration Parameters
 
@@ -95,7 +95,7 @@ The Free Look app allows you to enable a free look camera in-world for players w
 
 The Emote app allows you to create custom emotes for players to use when they enter a command into the world chat.
 
-![Emote](https://hackmd.io/_uploads/rJ7QCvy0p.jpg)
+![Emote](interaction3.png)
 
 ### Configuration Parameters
 
@@ -114,7 +114,7 @@ The Emote app allows you to create custom emotes for players to use when they en
 
 The Attachable app allows multiple players to attach a custom model to a particular bone of their avatar.
 
-![Attachable](https://hackmd.io/_uploads/B1kDJ_JR6.jpg)
+![Attachable](interaction4.png)
 
 ### Configuration Parameters
 
@@ -172,7 +172,7 @@ The Timer app allows you to create a timer that get triggers by external apps.
 
 ## Zone
 
-![Zone](https://hackmd.io/_uploads/S1mFGOJ0T.jpg)
+![Zone](interaction5.png)
 
 ### Overview
 
@@ -201,7 +201,7 @@ The Zone app allows you to trigger different actions across apps when users inte
 
 The Seat app allows you to trigger a sitting emote at a given location to emulate a player sitting.
 
-![Seat](https://hackmd.io/_uploads/SkmZmuyAa.jpg)
+![Seat](interaction6.png)
 
 ### Configuration Parameters
 
@@ -223,7 +223,7 @@ If `Clickable` is set to `Yes`:
 
 The NPC app allows you to deploy a Non Playable Character in-world with customizable dialogue trees.
 
-![NPC](https://hackmd.io/_uploads/SJOfV_1CT.jpg)
+![NPC](interaction7.png)
 
 ### Configuration Parameters
 
@@ -289,7 +289,7 @@ The Randomizer enables randomization of multiple actions.
 
 The Quest app allows the creation of dynamic in-world quests.
 
-![Quest](https://hackmd.io/_uploads/HkDVS_yA6.jpg)
+![Quest](interaction8.png)
 
 ### Configuration Parameters
 

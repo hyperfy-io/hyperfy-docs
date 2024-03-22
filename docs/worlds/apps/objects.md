@@ -6,7 +6,7 @@
 
 The car app allows you to create and configure cars in your virtual world. It provides extensive customization options, including body specifications, wheel configurations, engine dynamics, and more, to simulate realistic or fantastical vehicle behavior.
 
-![Car](https://hackmd.io/_uploads/rkXUNwk0p.jpg)
+![Car](objects1.png)
 
 ### Configuration Parameters
 
@@ -89,7 +89,7 @@ Uses same parameters as Seat #1
 
 The portal app allows you to deploy a portal to other Hyperfy virtual worlds or external URLs.
 
-![Portal](https://hackmd.io/_uploads/BJLBSP1Ca.jpg)
+![Portal](objects2.png)
 
 ### Configuration Parameters
 
@@ -110,7 +110,7 @@ The portal app allows you to deploy a portal to other Hyperfy virtual worlds or 
 
 The Platform App allows for the creation and configuration of movable platforms within the virtual environment, enabling dynamic interactions and animations for user experiences.
 
-![Platform](https://hackmd.io/_uploads/Syi3BvkCa.jpg)
+![Platform](objects3.png)
 
 ### Configuration Parameters
 
@@ -146,6 +146,7 @@ The Platform App allows for the creation and configuration of movable platforms 
 The Avatar App enables users to equip custom VRM avatars within the virtual world.
 
 ![Avatar](https://hackmd.io/_uploads/SJzsLPyCa.jpg)
+![Avatar](objects4.png)
 
 ### Configuration Parameters
 
@@ -170,7 +171,7 @@ If `Image` is selected:
 
 The Mirror App allows you to implement a mirror in your virtual world.
 
-![Mirror](https://hackmd.io/_uploads/B1kcOPJAp.jpg)
+![Mirror](objects5.png)
 
 ### Configuration Parameters
 
@@ -206,7 +207,7 @@ The Mirror App allows you to implement a mirror in your virtual world.
 
 The Launch Pad App allows you to create interactive launch pads within the virtual environment, propelling players into the air when they step onto the pad.
 
-![Launchpad](https://hackmd.io/_uploads/rymUYPk0a.jpg)
+![Launchpad](objects6.png)
 
 ### Configuration Parameters
 
@@ -238,7 +239,7 @@ If you set your type to `Custom`:
 
 The Grabbable app allows a user to attach a custom model to the player avatar when it is _grabbed_.
 
-![grabbable](https://hackmd.io/_uploads/HJNRqPy06.jpg)
+![grabbable](objects7.png)
 
 ### Configuration Parameters
 
@@ -258,7 +259,7 @@ The Grabbable app allows a user to attach a custom model to the player avatar wh
 
 ## Grid
 
-![Grid](https://hackmd.io/_uploads/SkNDiDk0p.jpg)
+![Grid](objects8.png)
 
 ### Overview
 

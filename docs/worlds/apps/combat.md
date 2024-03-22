@@ -6,7 +6,7 @@
 
 The Combat Melee App enables the creation of interactive combat systems, focusing on melee attacks with customizable hitboxes and effects.
 
-![Melee Item2](https://hackmd.io/_uploads/HJ6_2_1Cp.jpg)
+![Alt text](combat1.png)
 
 ### Configuration Parameters
 

@@ -7,6 +7,7 @@
 The video app allows users to bring video content in world by uploading a video file or playing from a URL.
 
 ![image](https://hackmd.io/_uploads/H1JYu8q3p.png)
+![image](media1.png)
 
 ### Configuration Parameters
 
@@ -107,7 +108,7 @@ The audio app allows users to bring audio files (both uploaded and online) to th
 
 The text app allows you to create a text canvas in your world
 
-![image](https://hackmd.io/_uploads/Syxl1D53a.png)
+![image](media2.png)
 
 ### Configuration Parameters
 
@@ -144,7 +145,7 @@ The text app allows you to create a text canvas in your world
 
 The screen app allows world admins to cast their screen to their world.
 
-![image](https://hackmd.io/_uploads/ryVZXvqhT.png)
+![image](media3.png)
 
 ### Configuration Parameters
 
@@ -173,7 +174,7 @@ The screen app allows world admins to cast their screen to their world.
 
 The model app allows world owners to bring in custom `.glb` models into their world.
 
-![image](https://hackmd.io/_uploads/ByE1Vv526.png)
+![image](media4.png)
 
 ### Configuration Parameters
 
@@ -197,7 +198,7 @@ The model app allows world owners to bring in custom `.glb` models into their wo
 
 The image app allows world owners to bring in `.png`, `.jpg` and `.gif` images into their world.
 
-![asdgag](https://hackmd.io/_uploads/SJbsLPqn6.jpg)
+![asdgag](media5.png)
 
 ### Configuration Parameters
 
@@ -226,7 +227,7 @@ The image app allows world owners to bring in `.png`, `.jpg` and `.gif` images i
 
 Allows world owners to display webpages that users can interact with in world.
 
-![Capture](https://hackmd.io/_uploads/HytbYD5ha.jpg)
+![Capture](media6.png)
 
 ### Configuration Parameters
 
