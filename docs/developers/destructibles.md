@@ -1709,6 +1709,8 @@ export function getStore(state = { active: true }) {
 
 </details>
 
+And that's it! Feel free to remix this app and share the stuff you come up with!
+
 ## Final code
 
 ```jsx
