@@ -1,4 +1,3 @@
 ---
-sidebar_label: Refs
-sidebar_position: 130
+sidebar_class_name: hidden
 ---

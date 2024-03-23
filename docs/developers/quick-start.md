@@ -4,20 +4,20 @@ sidebar_position: 20
 
 # Quick Start
 
-To get started you'll need NodeJS + Npm/Yarn. We recommend using NodeJS `v16.14.2` as this is the version we build and test with. A utility like [nvm](https://github.com/nvm-sh/nvm) allows you to quickly switch between different versions of node.
+To get started you'll need [NodeJS](https://nodejs.org/en) + [Npm/Yarn](https://classic.yarnpkg.com/lang/en/docs/install/). We recommend using NodeJS `v16.14.2` as this is the version we build and test with. If you are on a Windows operating system you may have trouble install/deploying without having [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (Windows Subsystem for Linux 1 or 2) installed on your machine. A utility like [nvm](https://github.com/nvm-sh/nvm) allows you to quickly switch between different versions of node.
 
 The easiest way to get started with the SDK is by initializing a new project using `npx`:
 
 ```bash
-npx hyperfy create <project>
+npx hyperfy create quickstart
 ```
 
-This will create a project with a demo app to get you started.
+This will create a directory containing the project with a demo app to get you started.
 
-Launch the world:
+Navigate into the directory and launch the world:
 
 ```bash
-cd <project>
+cd quickstart
 npm install
 npm run dev
 ```

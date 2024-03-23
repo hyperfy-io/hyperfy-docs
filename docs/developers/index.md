@@ -1,5 +1,3 @@
 ---
-sidebar_position: 130
+sidebar_class_name: hidden
 ---
-
-# 🖥️ Developers

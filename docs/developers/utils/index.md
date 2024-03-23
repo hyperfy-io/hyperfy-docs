@@ -1,4 +1,3 @@
 ---
-sidebar_position: 120
-sidebar_label: Utils
+sidebar_class_name: hidden
 ---

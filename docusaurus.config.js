@@ -24,7 +24,7 @@ const config = {
     },
   ],
 
-  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }]],
+  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }],],
   // plugins: [
   //   ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
   //   [
@@ -49,6 +49,19 @@ const config = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars/sidebar.js"),
           editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
+          async sidebarItemsGenerator({
+            isCategoryIndex: defaultCategoryIndexMatcher, // The default matcher implementation, given below
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            return defaultSidebarItemsGenerator({
+              isCategoryIndex() {
+                // No doc will be automatically picked as category index
+                return false;
+              },
+              ...args
+            });
+          },
         },
         blog: false,
         theme: {

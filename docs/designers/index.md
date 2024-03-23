@@ -1,5 +1,3 @@
 ---
-sidebar_position: 120
+sidebar_class_name: hidden
 ---
-
-# 🎨 Designers
