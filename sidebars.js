@@ -1,6 +1,6 @@
 module.exports = {
   docs: [
-    'index',
+    'intro',
     'avatars',
     'controls',
     'faq',

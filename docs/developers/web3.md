@@ -103,4 +103,4 @@ export function EthCubes() {
 }
 ```
 
-Learn more in the [useEth()](/developers/hooks/use-eth) API reference.
+Learn more in the [useEth()](/docs/developers/hooks/use-eth) API reference.
