@@ -8,7 +8,7 @@ If you own a world or have been invited to edit a world, you can edit it in real
 
 To open the editor using the `Tab` key or by clicking the edit button.
 
-<img src="/img/worlds-editor.png" alt="Hyperfy World Editor" style={{ maxWidth: '300px' }} />
+![](/img/worlds-editor.png)
 
 ## Apps
 
@@ -16,9 +16,9 @@ Everything in a world is an object we call an "App". Apps can be anything from a
 
 We provide you with a collection of built-in apps that are ready to use. They allow you to construct all kinds of environments and add interactive elements, NPC's, quests, vehicles, shops and much more!
 
-<img src="/img/worlds-apps.png" alt="Hyperfy Apps" style={{ maxWidth: '300px' }} />
+![](/img/worlds-apps.png)
 
-:::info Developers
+:::info
 
 If you are a developer, you can create powerful custom apps using our SDK!
 
@@ -28,7 +28,7 @@ If you are a developer, you can create powerful custom apps using our SDK!
 
 Any NFT's in your wallet that have 3D models, images, audio or video embedded can be added to your world instantly:
 
-<img src="/img/worlds-nfts.png" alt="Hyperfy NFTs" style={{ maxWidth: '300px' }} />
+![](/img/worlds-nfts.png)
 
 ## Settings
 
