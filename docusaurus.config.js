@@ -12,6 +12,8 @@ const config = {
   tagline: 'Hyperfy Documentation',
   favicon: 'favicon.ico',
 
+  staticDirectories: ['static'],
+
   // Set the production url of your site here
   url: 'https://madjin.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -68,6 +70,11 @@ const config = {
     ({
       docs: {
 	sidebar: { hideable: true},
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
       },
       // Replace with your project's social card
       image: 'img/hyperfy.jpg',
