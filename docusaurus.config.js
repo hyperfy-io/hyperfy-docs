@@ -1,71 +1,63 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// `@type` JSDoc annotations allow editor autocompletion and type checking
+// (when paired with `@ts-check`).
+// There are various equivalent ways to declare your Docusaurus config.
+// See: https://docusaurus.io/docs/api/docusaurus-config
 
-const lightCodeTheme = require("prism-react-renderer/themes/nightOwl");
-const darkCodeTheme = require("prism-react-renderer/themes/palenight");
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Hyperfy Docs",
-  tagline: "The web based metaverse available on every device",
-  url: "https://docs.hyperfy.io",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
-  organizationName: "hyperfy-io", // Usually your GitHub org/user name.
-  projectName: "hyperfy", // Usually your repo name.
+  title: 'Hyperfy Docs',
+  tagline: 'Hyperfy Documentation',
+  favicon: 'favicon.ico',
 
-  scripts: [
-    {
-      src: "https://plausible.io/js/plausible.js",
-      defer: true,
-      "data-domain": "docs.hyperfy.io",
-    },
-  ],
+  // Set the production url of your site here
+  url: 'https://madjin.github.io',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/hyperfy-docs/',
 
-  plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }],],
-  // plugins: [
-  //   ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
-  //   [
-  //     "@docusaurus/plugin-content-docs",
-  //     {
-  //       id: "sdk",
-  //       path: "sdk",
-  //       routeBasePath: "sdk",
-  //       sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),
-  //       editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
-  //     },
-  //   ],
-  // ],
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'madjin', // Usually your GitHub org/user name.
+  projectName: 'hyperfy-docs', // Usually your repo name.
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          // Serve the docs at the site's root
-          routeBasePath: "/",
-          sidebarPath: require.resolve("./sidebars/sidebar.js"),
-          editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
-          async sidebarItemsGenerator({
-            isCategoryIndex: defaultCategoryIndexMatcher, // The default matcher implementation, given below
-            defaultSidebarItemsGenerator,
-            ...args
-          }) {
-            return defaultSidebarItemsGenerator({
-              isCategoryIndex() {
-                // No doc will be automatically picked as category index
-                return false;
-              },
-              ...args
-            });
-          },
+          sidebarPath: './sidebars.js',
+	  sidebarCollapsed: false,
+	  showLastUpdateTime: true,
+	  showLastUpdateAuthor: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/madjin/hyperfy-docs/tree/main/',
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/madjin/hyperfy-docs/tree/main/',
+        },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: './src/css/custom.css',
         },
       }),
     ],
@@ -74,29 +66,87 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      colorMode: {
-        defaultMode: "dark",
-        // disableSwitch: true,
+      docs: {
+	sidebar: { hideable: true},
       },
+      // Replace with your project's social card
+      image: 'img/hyperfy.jpg',
       navbar: {
-        title: "Hyperfy",
+        title: 'Hyperfy Docs',
         logo: {
-          alt: "Hyperfy Logo",
-          src: "img/logo-light.svg",
-          srcDark: "img/logo-dark.svg",
+          alt: 'Hyperfy',
+          src: 'img/logo-dark.svg',
         },
         items: [
-          // {
-          //   to: "sdk/overview",
-          //   label: "SDK",
-          // },
+          {
+            type: 'docSidebar',
+            sidebarId: 'docs',
+            position: 'left',
+            label: 'Docs',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'developers',
+            position: 'left',
+            label: 'Developers',
+          },
+          {
+            href: 'https://github.com/hyperfy-io/hyperfy-docs',
+            label: 'GitHub',
+            position: 'right',
+          },
         ],
       },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Links',
+            items: [
+              {
+                label: 'Opensea',
+		href: 'https://opensea.io/collection/hyperfy',
+              },
+              {
+                label: 'Etherscan',
+		href: 'https://opensea.io/collection/hyperfy',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Discord',
+                href: 'https://discord.gg/Wec4HKnfbP',
+              },
+              {
+                label: 'Twitter/X',
+                href: 'https://twitter.com/hyperfy_io',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Hyperfy.io',
+                href: 'https://hyperfy.io',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/hyperfy-io',
+              },
+            ],
+          },
+        ],
+        //copyright: `Copyright © ${new Date().getFullYear()} Hyperfy. Built with Docusaurus.`,
+      },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
       },
     }),
 };
 
-module.exports = config;
+export default config;
