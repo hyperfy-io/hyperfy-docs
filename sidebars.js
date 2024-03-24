@@ -56,7 +56,6 @@ module.exports = {
       type: 'category',
       label: 'Components',
       items: [
-        'developers/components/index',
         'developers/components/app',
         'developers/components/arealight',
         'developers/components/audio',
@@ -92,7 +91,6 @@ module.exports = {
       type: 'category',
       label: 'Hooks',
       items: [
-        'developers/hooks/index',
         'developers/hooks/use-editing',
         'developers/hooks/use-entity-uid',
         'developers/hooks/use-eth',
@@ -106,7 +104,6 @@ module.exports = {
       type: 'category',
       label: 'Ref',
       items: [
-        'developers/ref/index',
         'developers/ref/avatar-ref',
         'developers/ref/event',
       ],
@@ -115,7 +112,6 @@ module.exports = {
       type: 'category',
       label: 'Utils',
       items: [
-        'developers/utils/index',
         'developers/utils/deg2rad',
         'developers/utils/euler',
         'developers/utils/matrix4',
