@@ -6,6 +6,9 @@ sidebar_label: Community Guides
 
 This is the community section for tutorials and guides as well as showcasing examples.
 
+## WIP STILL!
+
+Please send links to `jin` in the discord to add more to the list!
 
 - Roustan
   - [Beginner Basics Tutorial](https://vimeo.com/943485341)
