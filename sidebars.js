@@ -123,4 +123,7 @@ module.exports = {
       ],
     },
   ],
+  guides: [
+    'guides/overview',
+  ],
 };

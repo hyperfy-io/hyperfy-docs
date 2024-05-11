@@ -98,6 +98,12 @@ const config = {
             label: 'Developers',
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'guides',
+            position: 'left',
+            label: 'Guides',
+          },
+          {
             href: 'https://github.com/hyperfy-io/hyperfy-docs',
             label: 'GitHub',
             position: 'right',
