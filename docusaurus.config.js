@@ -104,6 +104,16 @@ const config = {
             label: 'Guides',
           },
           {
+            href: 'https://twitter.com/hyperfy_io',
+            label: 'Twitter',
+            position: 'right',
+          },
+          {
+            href: 'https://discord.gg/Wec4HKnfbP',
+            label: 'Discord',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/hyperfy-io/hyperfy-docs',
             label: 'GitHub',
             position: 'right',
@@ -122,7 +132,7 @@ const config = {
               },
               {
                 label: 'Etherscan',
-		href: 'https://opensea.io/collection/hyperfy',
+		href: 'https://etherscan.io/address/0xf53b18570db14c1e7dbc7dc74538c48d042f1332',
               },
             ],
           },
