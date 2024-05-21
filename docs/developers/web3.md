@@ -1,5 +1,5 @@
 ---
-sidebar_position: 70
+sidebar_position: 30
 ---
 
 # Web3
@@ -19,6 +19,7 @@ The following example demonstrates this functionality using simple cubes that yo
 
 ```jsx
 import React, { useMemo, useState } from "react";
+// highlight-next-line
 import { useEth } from "hyperfy";
 
 const CONTRACT = "0x000...";
@@ -26,7 +27,9 @@ const MINT_PRICE = "0.06";
 const PAYEE = "0x000...";
 
 export function EthCubes() {
+// highlight-next-line
   const eth = useEth(); // defaults to ethereum network
+// highlight-next-line
   const contract = useMemo(() => eth.contract(CONTRACT), []);
   const [status, setStatus] = useState(null);
 
@@ -34,6 +37,7 @@ export function EthCubes() {
     const { address } = e.avatar;
     if (!address) return setStatus("Not connected!");
     setStatus("Checking...");
+// highlight-next-line
     const balance = await contract.read("balanceOf", address);
     setStatus(`Balance: ${balance}`);
   }
@@ -42,9 +46,11 @@ export function EthCubes() {
     const { address } = e.avatar;
     if (!address) return setStatus("Not connected!");
     setStatus("Please confirm transaction");
+// highlight-start
     const tx = await contract.write("mint", 1, {
       value: eth.toWei(MINT_PRICE),
     });
+// highlight-end
     setStatus("Verifying...");
     await tx.wait();
     setStatus("Minted!");
@@ -54,6 +60,7 @@ export function EthCubes() {
     const { address } = e.avatar;
     if (!address) return setStatus("Not connected!");
     setStatus("Please sign message");
+// highlight-next-line
     const signature = await eth.sign("Howdy!");
     setStatus("Signed!");
   }
@@ -62,6 +69,7 @@ export function EthCubes() {
     const { address } = e.avatar;
     if (!address) return setStatus("Not connected!");
     setStatus("Please confirm payment");
+// highlight-next-line
     const tx = await eth.pay(PAYEE, eth.toWei("0.01"));
     setStatus("Verifying...");
     await tx.wait();
@@ -95,4 +103,4 @@ export function EthCubes() {
 }
 ```
 
-Learn more in the [useEth()](/developers/hooks/use-eth) API reference.
+Learn more in the [useEth()](/docs/developers/hooks/use-eth) API reference.
