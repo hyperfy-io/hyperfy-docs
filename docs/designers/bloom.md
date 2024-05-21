@@ -6,7 +6,7 @@ sidebar_position: 20
 
 Bloom is an effect that makes an object glow.
 
-![](/img/designers-bloom.png)
+<img src="/img/designers-bloom.png" alt="Hyperfy Bloom" style={{ maxWidth: '800px' }} />
 
 Hyperfy supports "HDR Bloom" which means that any material that emits color into HDR levels will glow.
 

@@ -35,7 +35,7 @@ You can explore in either portrait or landscape mode by rotating your device.
 
 If your device supports it, a button will be shown to let you enter immersive VR:
 
-![](/img/vr.png)
+<img src="/img/vr.png" alt="Hyperfy VR Button" style={{ maxWidth: '300px' }} />
 
 Note: if you want to use voice chat, enable it before entering VR!
 

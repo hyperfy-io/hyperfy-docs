@@ -45,12 +45,10 @@ function MovingBox() {
   useEffect(() => {
     const box = ref.current
     const position = new Vector3()
-// highlight-start
     return world.onUpdate(delta => {
       position.y += delta
       box.setPosition(position)
     })
-// highlight-end
   }, [])
 
   return (

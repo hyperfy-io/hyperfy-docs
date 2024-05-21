@@ -12,19 +12,15 @@ Accepted file types:
 ## Example
 
 ```jsx
-import React from 'react'
-//highlight-next-line
 import { useFields, useFile } from "hyperfy";
 
 export default function App() {
   const { image } = useFields();
-//highlight-next-line
   const fileUrl = useFile(image);
 
   return (
     <app>
-//highlight-next-line
-      <image src={fileUrl  ?? "https://hyperfy.io/logo-full.svg"} />
+      <image src={fileUrl} >
     </app>
   )
 }
@@ -43,7 +39,7 @@ export const getStore = (state = initialState) => {
         key: "image",
         label: "Image",
         accept: ".png",
-        // accept: ".png, .jpg, jpeg, .gif, .svg, .glb, .vrm, .mp4, .mp3",
+        // accept: ".png, .jpg, jpeg, .gif, .glb, .vrm, .mp4, .mp3",
       },
     ],
   };

@@ -1,24 +1,10 @@
----
-sidebar_position: 10
----
-
 # `DEG2RAD`
 
 A utility for converting degrees to radians.
 
 ```jsx
-import React from "react";
-//highlight-next-line
-import { DEG2RAD, RAD2DEG, Euler } from "hyperfy";
+import { DEG2RAD, RAD2DEG } from "hyperfy";
 
-export default function App() {
-//highlight-next-line
-  const rotation = new Euler(0, 90 * DEG2RAD, 0, "YXZ");
-  console.log(rotation);
-
-  const yDegrees = rotation.y * RAD2DEG; //90
-  console.log(yDegrees);
-
-  return <app />;
-}
+const rotation = new Euler(0, 90 * DEG2RAD, 0, "YXZ");
+const yDegrees = rotation.y * RAD2DEG; // 90
 ```

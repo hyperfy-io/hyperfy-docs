@@ -33,26 +33,22 @@ Each field is an object with properties that revolve around a `type`.
 ## Example
 
 ```jsx
-import React from 'react'
-//highlight-next-line
 import { useFields, useFile } from "hyperfy";
 
 export default function App() {
-//highlight-start
   const fields = useFields();
-  const { text, float, switchValue, dropdownValue, file, position, color } = fields;
-//highlight-end
+  const { text, float, switchValue, dropdownValue, file, position } = fields;
   const fileUrl = useFile(file);
 
   return (
     <app>
-      <text value={`
+      <text text={`
         Text: ${text}
         Float: ${float}
         Switch: ${switchValue}
         Dropdown: ${dropdownValue}
-      `} color={color}/>
-      <image src={fileUrl ?? "https://hyperfy.io/logo-full.svg"} position={position} />
+      `} />
+      <image src={fileUrl} position={position}>
     </app>
   )
 }
@@ -65,7 +61,6 @@ export const getStore = (state = initialState) => {
   return {
     state,
     actions: {},
-//highlight-start
     fields: [
       {
         type: "text",
@@ -111,24 +106,13 @@ export const getStore = (state = initialState) => {
         type: "vec3",
         key: "position",
         label: "Position",
-        initial: [0, 0.5, 0],
-      },
-      {
-        type: "color",
-        key: "color",
-        label: "Color",
-        initial: "white",
+        initial: [0, 0, 0],
       },
       {
         type: "section",
         label: "Section",
       }
     ],
-//highlight-end
   };
 };
 ```
-
-What this app looks like in the Hyperfy editor UI:
-
-![Editor Fields](image-1.png)

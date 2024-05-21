@@ -6,7 +6,7 @@ sidebar_position: 30
 
 The Hyperfy UI is streamlined, intuitive and designed to keep you immersed while still giving you control when you need it!
 
-![](/img/ui.png)
+<img src="/img/ui.png" alt="Hyperfy User Interface" style={{ maxWidth: '800px' }} />
 
 ## Chat
 
@@ -20,34 +20,34 @@ By default your microphone is disabled until your click this button. Clicking it
 
 Items and NFTs that you own that can be used in the current world will show up here.
 
-![](/img/backpack.png)
+<img src="/img/backpack.png" alt="Hyperfy Backpack" style={{ maxWidth: '800px' }} />
 
 ## Account
 
 The account menu lets you connect your wallet, change your name and equip avatars.
 
-![](/img/account.png)
+<img src="/img/account.png" alt="Hyperfy Account" style={{ maxWidth: '400px' }} />
 
 ## Editor
 
 If you are in a world you can edit, the editor lets you make changes to the world in realtime.
 
-![](/img/editor.png)
+<img src="/img/editor.png" alt="Hyperfy Editor" style={{ maxWidth: '800px' }} />
 
 ## People
 
 Lists the people that are in the world with you.
 
-![](/img/people.png)
+<img src="/img/people.png" alt="Hyperfy People" style={{ maxWidth: '400px' }} />
 
 ## Settings
 
 Manage your performance and display settings etc
 
-![](/img/settings.png)
+<img src="/img/settings.png" alt="Hyperfy Settings" style={{ maxWidth: '400px' }} />
 
 ## Explore
 
 The explore menu is a quick way to jump into other worlds or one that you own.
 
-![](/img/explore.png)
+<img src="/img/explore.png" alt="Hyperfy Explore" style={{ maxWidth: '400px' }} />

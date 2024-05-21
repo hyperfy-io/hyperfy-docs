@@ -14,13 +14,13 @@ To get you started quickly, we offer a library of open source avatars for you to
 
 For now this includes 200+ Crypto Avatars from [Vipe](https://vipe.io) that you can equip right from the account menu:
 
-![](/img/cryptoavatars.png)
+<img src="/img/cryptoavatars.png" alt="Crypto Avatars in Hyperfy" style={{ maxWidth: '400px' }} />
 
 ## Avatar NFT's
 
 All NFT's that you own that have a VRM avatar embedded will be displayed in the account menu for quick access:
 
-![](/img/nft-avatars.png)
+<img src="/img/nft-avatars.png" alt="NFT Avatars in Hyperfy" style={{ maxWidth: '400px' }} />
 
 ## Uploading An Avatar
 

@@ -36,7 +36,7 @@ It's easy for anyone to get started with the apps and assets we've provided. Aft
 
 ### How do people visit my world?
 
-Each world has its own link in the format **hyperfy.io/`worldID`** which you can change at any time.
+Each world has its own link in the format **hyperfy.io/<name\>** which you can change at any time.
 
 ### Can I limit access to my world?
 

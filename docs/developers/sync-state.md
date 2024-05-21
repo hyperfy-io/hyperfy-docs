@@ -12,15 +12,12 @@ The following example shows a cube that changes color when anyone clicks on it. 
 
 ```jsx
 import React from "react";
-// highlight-next-line
 import { useSyncState } from "hyperfy";
 
 export default function ColorCube() {
-// highlight-next-line
   const [color, dispatch] = useSyncState((state) => state.color);
   return (
     <app>
-// highlight-next-line
       <box color={color} onPointerDown={() => dispatch("toggle")} />
     </app>
   );
@@ -30,7 +27,6 @@ const initialState = {
   color: "blue",
 };
 
-// highlight-start
 export function getStore(state = initialState) {
   return {
     state,
@@ -41,7 +37,6 @@ export function getStore(state = initialState) {
     },
   };
 }
-// highlight-end
 ```
 
 Synchronized state is inspired by the flux/redux pattern popular on the web, but instead of dispatching events locally they are distributed across all clients and the server.
