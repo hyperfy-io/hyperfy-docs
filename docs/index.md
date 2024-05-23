@@ -14,11 +14,12 @@ sidebar_position: 0
 
 - Import custom glTF 3D models and VRM avatars
   - Support for `vrm_url` in NFT metadata
-- Real-time collaboratively editing
+- Physics support via PhysX
+- Real-time collaborative editing
 - Rendering powered by threejs and webgl
-- SDK to create and upload your own apps
+- You can create and upload your own apps
 - VR support with IK (full body not yet supported)
-
+- Crypto support for wallet login and inventory
 
 ---
 

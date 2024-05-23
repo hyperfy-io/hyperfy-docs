@@ -2,7 +2,7 @@
 sidebar_position: 60
 ---
 
-# SECRETS
+# Secrets
 
 Apps run on both the server and client which can be an issue if you want to do something securely like submit high scores or reward players. To solve this, we allow you to bundle secrets with your app, and those variables will only be available from the code that runs on the server.
 

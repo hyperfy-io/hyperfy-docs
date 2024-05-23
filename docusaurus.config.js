@@ -5,28 +5,47 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+//const lightCodeTheme = require("prism-react-renderer/themes/nightOwl");
+//const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Hyperfy Docs',
-  tagline: 'Hyperfy Documentation',
-  favicon: 'favicon.ico',
+  tagline: "The web based metaverse available on every device",
+  url: "https://docs.hyperfy.io", 
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/favicon.ico',
+  organizationName: 'hyperfy-io', // Usually your GitHub org/user name.
+  projectName: 'hyperfy', // Usually your repo name.
+
+  scripts: [                                                                                                                                                  
+    {                                                                                                                                                         
+      src: "https://plausible.io/js/plausible.js",                                                                                                            
+      defer: true,                                                                                                                                            
+      "data-domain": "docs.hyperfy.io",                                                                                                                       
+    },                                                                                                                                                        
+  ],
 
   staticDirectories: ['static'],
 
-  // Set the production url of your site here
-  url: 'https://madjin.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/hyperfy-docs/',
+  //plugins: [["@cmfcmf/docusaurus-search-local", { indexBlog: false }]],                                                                                       
+  plugins: [require.resolve('docusaurus-lunr-search')],
+  // plugins: [                                                                                                                                               
+  //   ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],                                                                                             
+  //   [                                                                                                                                                      
+  //     "@docusaurus/plugin-content-docs",                                                                                                                   
+  //     {                                                                                                                                                    
+  //       id: "sdk",                                                                                                                                         
+  //       path: "sdk",                                                                                                                                       
+  //       routeBasePath: "sdk",                                                                                                                              
+  //       sidebarPath: require.resolve("./sidebars/sdk-sidebar.js"),                                                                                         
+  //       editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",                                                                                  
+  //     },                                                                                                                                                   
+  //   ],                                                                                                                                                     
+  // ],
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'madjin', // Usually your GitHub org/user name.
-  projectName: 'hyperfy-docs', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -42,22 +61,16 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: "/",
           sidebarPath: './sidebars.js',
 	  sidebarCollapsed: false,
 	  showLastUpdateTime: true,
 	  showLastUpdateAuthor: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/madjin/hyperfy-docs/tree/main/',
+          editUrl: "https://github.com/hyperfy-io/hyperfy-docs/tree/main/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/madjin/hyperfy-docs/tree/main/',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -82,7 +95,8 @@ const config = {
         title: 'Hyperfy Docs',
         logo: {
           alt: 'Hyperfy',
-          src: 'img/logo-dark.svg',
+          src: 'img/logo-light.svg',
+          srcDark: 'img/logo-dark.svg',
         },
         items: [
           {
@@ -166,8 +180,8 @@ const config = {
         //copyright: `Copyright © ${new Date().getFullYear()} Hyperfy. Built with Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.nightOwl,
+        darkTheme: prismThemes.palenight,
       },
     }),
 };

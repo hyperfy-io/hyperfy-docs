@@ -3,33 +3,33 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
-  {
-    title: 'Cross-platform',
-    Svg: require('@site/static/img/vr-phone.svg').default,
-    description: (
-      <>
-         Made from pure web tech. Mobile, Desktop, + VR supported on any browser that supports WebXR.
-      </>
-    ),
-  },
-  {
-    title: 'Collaborative',
-    Svg: require('@site/static/img/collab.svg').default,
-    description: (
-      <>
-        3D infinite canvas for your imagination. Invite others to create your worlds with real-time drag and drop editing. 
-      </>
-    ),
-  },
-  {
-    title: 'Extensible',
-    Svg: require('@site/static/img/web.svg').default,
-    description: (
-      <>
-        If you've ever used React to build a website or app, you'll feel right at home with the Hyperfy SDK.
-      </>
-    ),
-  },
+//  {
+//    title: 'Cross-platform',
+//    Svg: require('@site/static/img/vr-phone.svg').default,
+//    description: (
+//      <>
+//         Made from pure web tech. Mobile, Desktop, + VR supported on any browser that supports WebXR.
+//      </>
+//    ),
+//  },
+//  {
+//    title: 'Collaborative',
+//    Svg: require('@site/static/img/collab.svg').default,
+//    description: (
+//      <>
+//        3D infinite canvas for your imagination. Invite others to create your worlds with real-time drag and drop editing. 
+//      </>
+//    ),
+//  },
+//  {
+//    title: 'Extensible',
+//    Svg: require('@site/static/img/web.svg').default,
+//    description: (
+//      <>
+//        If you've ever used React to build a website or app, you'll feel right at home with the Hyperfy SDK.
+//      </>
+//    ),
+//  },
 ];
 
 function Feature({Svg, title, description}) {
