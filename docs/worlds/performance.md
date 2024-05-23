@@ -10,7 +10,7 @@ There are no hard limits to how much you can put in your world, but there are a 
 
 At any time you can bring up the performance stats of your world to get a better idea of what makes up your world.
 
-<img src="/img/worlds-performance.png" alt="Hyperfy Performance Stats" />
+![](/img/worlds-performance.png)
 
 ## Recommendations
 
